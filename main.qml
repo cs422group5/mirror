@@ -5,7 +5,17 @@ import "request.js" as HTTP
 
 Rectangle {
     id:home
-
+    property string email: "paulrealsane@gmail.com"
+    property string passwd: "fantasy90"
+    property string authToken: ""
+    Component.onCompleted:
+        if (email != "" && passwd != ""){
+            HTTP.googleLogin_Request(email,passwd);
+        }
+    Timer{
+        interval: 3000; running:true;
+        onTriggered: console.log("authToken= "+authToken);
+    }
     width: 1024
     height: 728
     Header{
@@ -19,7 +29,7 @@ Rectangle {
         hexcolor: "#444"
         MouseArea{
             anchors.fill:parent
-            onClicked: Handler.click_secondlevel("Weather")
+            onClicked: Handler.click_secondlevel("Weather");
         }
     }
 
@@ -370,10 +380,6 @@ Rectangle {
                     Text{
                         color:"#fff"
                         text: "General"
-                        MouseArea{
-                            anchors.fill:parent
-                            onClicked: HTTP.googleLogin_Request();
-                        }
                     }
                 }
                 Item{
