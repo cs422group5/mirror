@@ -1,11 +1,12 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
+//test
 import QtQuick 1.1
 import"mirrorjs.js" as Handler
 Rectangle {
     id:home
 
     width: 1024
-    height: 729
+    height: 728
     Header{
         id:topright
         hexcolor:"#444"
