@@ -412,6 +412,19 @@ Rectangle {
     WindowSize3{
         id: thirdCalendar
         text: "Calendar"
+        Calendar_View {
+            id: calendar_view1
+            y: 49
+            width: 518
+            height: 248
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            anchors.left: parent.left
+            anchors.leftMargin: 2
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 0
+            visible: true
+        }
     }
 
     //Large Todo Window
@@ -447,11 +460,28 @@ Rectangle {
         text:"Calendar"
         x:784
         y:320
+
+        MouseArea {
+            id: mouse_area1
+            anchors.fill: parent
+            onClicked:{
+                console.log('show/hide calendar');
+                Handler.click_secondlevel(firstCalendar.text);
+            }
+        }
+
         Item{
             x:10
             y:20
             height:170
             width:220
+
+            Calendar_Mini {
+                id: calendar_mini1
+                x: 10
+                y: 20
+                anchors.fill: parent
+                }
             //color:"#222"
             //INSERT CALENDAR APPLICATION HERE
         }
