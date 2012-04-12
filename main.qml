@@ -5,17 +5,14 @@ import "request.js" as HTTP
 
 Rectangle {
     id:home
-    property string email: "paulrealsane@gmail.com"
-    property string passwd: "fantasy90"
+    property string email: ""
+    property string passwd: ""
     property string authToken: ""
+    onAuthTokenChanged: console.log("authToken = "+authToken);
     Component.onCompleted:
         if (email != "" && passwd != ""){
             HTTP.googleLogin_Request(email,passwd);
         }
-    Timer{
-        interval: 3000; running:true;
-        onTriggered: console.log("authToken= "+authToken);
-    }
     width: 1024
     height: 728
     Header{
@@ -368,7 +365,7 @@ Rectangle {
             Rectangle{
                 y:10
                 width:500
-                height:270
+                height:230
                 color:"#000"
                 border.width:2
                 border.color:"#fff"
@@ -389,7 +386,41 @@ Rectangle {
                     visible: false
                     Text{
                         color:"#fff"
-                        text: "Google"
+                        text: "Email"
+                        font.pixelSize: 32
+                    }
+                    Text{
+                        y:40
+                        color:"#fff"
+                        text: "Password"
+                        font.pixelSize: 32
+                    }
+                    Rectangle{
+                        x: 240
+                        y:8
+                        width:240
+                        height:24
+                        TextInput{
+                            id: emailInput
+                            text: email
+                            width:240
+                            height:24
+                            font.pixelSize: 18
+                        }
+                    }
+                    Rectangle{
+                        x: 240
+                        y:48
+                        width:240
+                        height:24
+                        TextInput{
+                            id:passwdInput
+                            echoMode: TextInput.Password
+                            text: passwd
+                            width:240
+                            height:24
+                            font.pixelSize: 18
+                        }
                     }
                 }
                 Item{
@@ -420,6 +451,46 @@ Rectangle {
                 x:234
                 hexcolor: "#444"
                 text:"Wifi"
+            }
+            Rectangle{
+                x: 290
+                y:250
+                width:100
+                height:30
+                radius: 5
+                color:"#000"
+                border.color: "#fff"
+                border.width: 2
+                Text{
+                    anchors.centerIn: parent
+                    text: "Save"
+                    font.pixelSize: 18
+                    color: "#fff"
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_save(emailInput.text,passwdInput.text)
+                }
+            }
+            Rectangle{
+                x: 400
+                y:250
+                width:100
+                height:30
+                radius: 5
+                color:"#000"
+                border.color: "#fff"
+                border.width: 2
+                Text{
+                    anchors.centerIn: parent
+                    text: "Close"
+                    font.pixelSize: 18
+                    color: "#fff"
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_secondlevel("Preferences")
+                }
             }
         }
     }
