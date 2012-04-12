@@ -1,6 +1,8 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
-import"mirrorjs.js" as Handler
+import "mirrorjs.js" as Handler
+import "request.js" as HTTP
+
 Rectangle {
     id:home
 
@@ -368,6 +370,10 @@ Rectangle {
                     Text{
                         color:"#fff"
                         text: "General"
+                        MouseArea{
+                            anchors.fill:parent
+                            onClicked: HTTP.googleLogin_Request();
+                        }
                     }
                 }
                 Item{

@@ -223,9 +223,23 @@ function click_icon(app){
         }
     }
     else{
-        thirdHealth.visible = false;
-        thirdOutfit.visible = false;
-        thirdStocks.visible = false;
+        if (thirdHealth.visible){
+            thirdHealth.visible = false;
+            secondHealth.hexcolor = "#222";
+            firstHealth.hexcolor = "#222";
+        }
+        else if (thirdOutfit.visible){
+            thirdOutfit.visible = false;
+            secondOutfit.hexcolor = "#222";
+            firstOutfit.hexcolor = "#222";
+        }
+        else if (thirdStocks.visible){
+            thirdStocks.visible = false;
+            secondStocks.hexcolor = "#222";
+            firstStocks.hexcolor = "#222";
+        }
+
+
         if (!thirdPreferences.visible){
             firstPreferences.hexcolor = "#000";
             thirdPreferences.visible = true;
