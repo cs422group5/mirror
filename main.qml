@@ -473,15 +473,6 @@ Rectangle {
         x:784
         y:320
 
-        MouseArea {
-            id: mouse_area1
-            anchors.fill: parent
-            onClicked:{
-                console.log('show/hide calendar');
-                Handler.click_secondlevel(firstCalendar.text);
-            }
-        }
-
         Item{
             x:10
             y:20
@@ -496,6 +487,14 @@ Rectangle {
                 }
             //color:"#222"
             //INSERT CALENDAR APPLICATION HERE
+        }
+        MouseArea {
+            id: mouse_area1
+            anchors.fill: parent
+            onClicked:{
+                console.log('show/hide calendar');
+                Handler.click_secondlevel(firstCalendar.text);
+            }
         }
     }
 
