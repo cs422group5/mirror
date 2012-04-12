@@ -1,5 +1,4 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
-//test
 import QtQuick 1.1
 import"mirrorjs.js" as Handler
 Rectangle {
@@ -13,18 +12,12 @@ Rectangle {
         x:570
         y:-40
     }
-    HeaderWeather{
-        hexcolor:"#444"
-        id: secondWeather
-        x:-40
-        y:-40
-    }
-
     WeatherIcon{
+        id: secondWeather
         hexcolor: "#444"
         MouseArea{
             anchors.fill:parent
-            onClicked: Handler.click_icon("Weather")
+            onClicked: Handler.click_secondlevel("Weather")
         }
     }
 
@@ -333,6 +326,25 @@ Rectangle {
         text: "Stocks"
     }
 
+    //Large weather window
+    //Allows user to view stocks in detail and over time.
+    WindowSize3{
+        id: thirdWeather
+        text: "Weather"
+
+        Weather_View {
+            id: weather_view1
+            y: 219
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 0
+            visible: true
+        }
+    }
+
     //Large Preferences Window
     //Gives the user the ablility to set up Google account, Wifi Connections, location.
     WindowSize3{
@@ -489,6 +501,7 @@ Rectangle {
 
     //Todo List Window 1
     //Things the user wants to do/should do according to the application
+
     PermanentWindow{
         id: firstTodo
         hexcolor:"#444"
@@ -504,4 +517,5 @@ Rectangle {
             //INSERT TODOLIST APPLICATION HERE
         }
     }
+
 }

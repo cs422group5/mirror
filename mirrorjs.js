@@ -38,6 +38,7 @@ function click_secondlevel(app){
     var ctaopen = thirdCTA.visible;
     var calendaropen = thirdCalendar.visible;
     var todoopen = thirdTodo.visible;
+    var weatheropen = thirdWeather.visible;
 
     thirdHealth.visible = false;
     thirdOutfit.visible = false;
@@ -46,9 +47,11 @@ function click_secondlevel(app){
     thirdCTA.visible = false;
     thirdCalendar.visible = false;
     thirdTodo.visible = false;
+    thirdWeather.visible = false;
     secondHealth.hexcolor = "#222";
     secondOutfit.hexcolor = "#222";
     secondStocks.hexcolor = "#222";
+    secondWeather.hexcolor = "#444";
     firstPreferences.hexcolor = "#444";
     firstCTA.hexcolor = "#444";
     firstCalendar.hexcolor = "#444";
@@ -121,6 +124,15 @@ function click_secondlevel(app){
             firstTodo.hexcolor = "#444";
         }
     }
+    else if(app == "Weather"){
+        thirdWeather.visible = !weatheropen;
+        if (thirdWeather.visible){
+            secondWeather.hexcolor = "#000";
+        }
+        else{
+            secondWeather.hexcolor = "#444";
+        }
+    }
     else{
         thirdPreferences.visible = !preferencesopen;
         if (thirdPreferences.visible){
@@ -180,14 +192,6 @@ function click_icon(app){
                 thirdStocks.visible = false;
                 secondStocks.hexcolor = "#222";
             }
-        }
-    }
-    else if(app == "Weather"){
-        if (secondWeather.visible == false){
-            secondWeather.visible = true;
-        }
-        else{
-            secondWeather.visible = false;
         }
     }
     else if(app == "Music"){
