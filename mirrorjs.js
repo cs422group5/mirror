@@ -3,6 +3,36 @@ var secondComponent;
 var leftbar = ['Health','Outfit','Stocks','Music','TV'];
 var leftbaropen = [null,null,null,null,null]
 
+function click_health(tab){
+    if (tab_health.tabcolor == "#fff"){
+        tab_health.tabcolor = "#444";
+        content_health.visible = false;
+        console.log("Health erased");
+    }
+    else if (tab_exercise.tabcolor == "#fff"){
+        tab_exercise.tabcolor = "#444";
+        content_exercise.visible = false;
+        console.log("Ex erased");
+    }
+    else{
+        tab_sleep.tabcolor = "#444";
+        content_sleep.visible = false;
+        console.log("Sleep erased");
+    }
+    if (tab == "Health"){
+        tab_health.tabcolor = "#fff";
+        content_health.visible = true;
+    }
+    else if (tab == "Exercise"){
+        tab_exercise.tabcolor = "#fff";
+        content_exercise.visible = true;
+    }
+    else{
+        tab_sleep.tabcolor = "#fff";
+        content_sleep.visible = true;
+    }
+}
+
 function click_save(newEmail, newPasswd){
     email = newEmail;
     passwd = newPasswd;

@@ -99,9 +99,15 @@ Rectangle {
                 height:10
                 //color:parent.color
                 Text{
-                    color:"#fff"
+                    id: tab_health
+                    property string tabcolor: "#fff"
+                    color:tabcolor
                     text: "Health"
                     anchors.centerIn: parent
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_health("Health");
                 }
             }
             Item{
@@ -110,9 +116,15 @@ Rectangle {
                 height:10
                 //color:parent.color
                 Text{
-                    color:"#999"
+                    id: tab_exercise
+                    property string tabcolor: "#444"
+                    color:tabcolor
                     text: "Exercise"
                     anchors.centerIn: parent
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_health("Exercise");
                 }
             }
             Item{
@@ -121,9 +133,15 @@ Rectangle {
                 height:10
                 //color:parent.color
                 Text{
-                    color:"#999"
+                    id: tab_sleep
+                    property string tabcolor: "#444"
+                    color: tabcolor
                     text: "Sleep"
                     anchors.centerIn: parent
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_health("Sleep");
                 }
             }
             Rectangle{
@@ -140,54 +158,170 @@ Rectangle {
                 width:149
                 height:2
             }
-            Rectangle{
-                x:9
-                y:60
-                width:10
-                height:10
-            }
-            Rectangle{
-                x:29
-                y:50
-                width:10
-                height:20
-            }
-            Rectangle{
-                x:49
-                y:40
-                width:10
-                height:30
-            }
-            Rectangle{
-                x:69
-                y:30
-                width:10
-                height:40
-            }
-            Rectangle{
-                x:89
-                y:20
-                width:10
-                height:50
+            Item{
+                id: content_health
                 Rectangle{
-                    x:2
-                    y:2
-                    width:6
-                    height:48
+                    x:9
+                    y:60
+                    width:10
+                    height:10
+                }
+                Rectangle{
+                    x:29
+                    y:50
+                    width:10
+                    height:20
+                }
+                Rectangle{
+                    x:49
+                    y:40
+                    width:10
+                    height:30
+                }
+                Rectangle{
+                    x:69
+                    y:30
+                    width:10
+                    height:40
+                }
+                Rectangle{
+                    x:89
+                    y:20
+                    width:10
+                    height:50
+                    Rectangle{
+                        x:2
+                        y:2
+                        width:6
+                        height:48
+                        color:secondHealth.color
+                    }
+                }
+                Rectangle{
                     color:secondHealth.color
+                    x:109
+                    y:20
+                    width:40
+                    height:40
+                    Text{
+                        color:"#fff"
+                        anchors.centerIn: parent
+                        font.pixelSize: 24
+                        text: "4"
+                    }
                 }
             }
-            Rectangle{
-                color:secondHealth.color
-                x:109
-                y:20
-                width:40
-                height:40
-                Text{
-                    color:"#fff"
-                    anchors.centerIn: parent
-                    font.pixelSize: 24
-                    text: "4"
+            Item{
+                id: content_exercise
+                visible: false
+                Rectangle{
+                    x:9
+                    y:60
+                    width:10
+                    height:10
+                }
+                Rectangle{
+                    x:29
+                    y:50
+                    width:10
+                    height:20
+                }
+                Rectangle{
+                    x:49
+                    y:40
+                    width:10
+                    height:30
+                }
+                Rectangle{
+                    x:69
+                    y:30
+                    width:10
+                    height:40
+                    Rectangle{
+                        x:2
+                        y:2
+                        width:6
+                        height:38
+                        color:secondHealth.color
+                    }
+                }
+                Rectangle{
+                    x:89
+                    y:20
+                    width:10
+                    height:50
+                    Rectangle{
+                        x:2
+                        y:2
+                        width:6
+                        height:48
+                        color:secondHealth.color
+                    }
+                }
+                Item{
+                    x:109
+                    y:20
+                    width:40
+                    height:40
+                    Text{
+                        color:"#fff"
+                        anchors.centerIn: parent
+                        font.pixelSize: 24
+                        text: "3"
+                    }
+                }
+            }
+            Item{
+                id: content_sleep
+                visible: false
+                Rectangle{
+                    x:9
+                    y:60
+                    width:10
+                    height:10
+                }
+                Rectangle{
+                    x:29
+                    y:50
+                    width:10
+                    height:20
+                }
+                Rectangle{
+                    x:49
+                    y:40
+                    width:10
+                    height:30
+                }
+                Rectangle{
+                    x:69
+                    y:30
+                    width:10
+                    height:40
+                }
+                Rectangle{
+                    x:89
+                    y:20
+                    width:10
+                    height:50
+                    Rectangle{
+                        x:2
+                        y:2
+                        width:6
+                        height:48
+                        color:secondHealth.color
+                    }
+                }
+                Item{
+                    x:109
+                    y:20
+                    width:40
+                    height:40
+                    Text{
+                        color:"#fff"
+                        anchors.centerIn: parent
+                        font.pixelSize: 24
+                        text: "4"
+                    }
                 }
             }
         }
@@ -321,6 +455,204 @@ Rectangle {
         id: thirdHealth
         text: "Health"
         visible: false
+        Item{
+            x:10
+            y:29
+            Rectangle{
+                y:10
+                width:500
+                height:230
+                color:"#000"
+                border.width:2
+                border.color:"#fff"
+            }
+            Tab{
+                id: tab_healthNutrients
+                x:10
+                hexcolor: "#fff"
+                text:"Nutrients"
+            }
+            Tab{
+                id: tab_healthMedicine
+                x:122
+                hexcolor: "#444"
+                text:"Medicine"
+            }
+            Tab{
+                id: tab_healthExercise
+                x:234
+                hexcolor: "#444"
+                text:"Exercise"
+            }
+            Tab{
+                id: tab_healthSleep
+                x:346
+                hexcolor: "#444"
+                text:"Sleep"
+            }
+            Item{
+                x:10
+                y:26
+                id: content_healthNutrients
+                visible: true
+                Text{
+                    color:"#fff"
+                    text: "Vitamins"
+                    font.pixelSize: 16
+                }
+                Text{
+                    y:24
+                    property string tabcolor: "#444"
+                    color:tabcolor
+                    text: "Suggestions"
+                    font.pixelSize: 16
+                }
+                Item{
+                    x:116
+                    Rectangle{
+                        //155
+                        y:35
+                        x:70
+                        width:36
+                        height:120
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                    }
+                    Rectangle{
+                        //155
+                        y:81
+                        x:130
+                        width:36
+                        height:74
+                        color:"#000"
+                        border.color:"#ff0000"
+                        border.width:2
+                    }
+                    Rectangle{
+                        //155
+                        y:20
+                        x:190
+                        width:36
+                        height:135
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                    }
+                    Rectangle{
+                        //155
+                        y:51
+                        x:250
+                        width:36
+                        height:104
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                    }
+                    Rectangle{
+                        //155
+                        y:104
+                        x:310
+                        width:36
+                        height:51
+                        color:"#000"
+                        border.color:"#ff0000"
+                        border.width:2
+                    }
+                    Rectangle{
+                        x: 60
+                        y:4
+                        width:2
+                        height:150
+                        color: "#fff"
+                    }
+                    Rectangle{
+                        x: 60
+                        y:154
+                        width:300
+                        height:2
+                        color: "#fff"
+                    }
+                    Text{
+                        y:40
+                        text:"Daily Value"
+                        color:"#fff"
+                    }
+                    Rectangle{
+                        x:58
+                        y:46
+                        width:6
+                        height:2
+                    }
+                    Item{
+                        x: 60
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "A"
+                            color:"#fff"
+                            font.pixelSize: 16
+                        }
+                    }
+                    Item{
+                        x: 120
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "B"
+                            color:"#fff"
+                            font.pixelSize: 16
+                        }
+                    }
+                    Item{
+                        x: 180
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "C"
+                            color:"#fff"
+                            font.pixelSize: 16
+                        }
+                    }
+                    Item{
+                        x: 240
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "D"
+                            color:"#fff"
+                            font.pixelSize: 16
+                        }
+                    }
+                    Item{
+                        x: 300
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "E"
+                            color:"#fff"
+                            font.pixelSize: 16
+                        }
+                    }
+                }
+            }
+            Rectangle{
+                x:116
+                y:10
+                height:230
+                width:2
+            }
+        }
     }
 
     //Large Changing Room Window
