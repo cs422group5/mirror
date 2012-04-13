@@ -518,6 +518,15 @@ Rectangle {
                         color:"#000"
                         border.color:"#fff"
                         border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height
+                                color: parent.parent.border.color
+                            }
+                        }
                     }
                     Rectangle{
                         //155
@@ -528,6 +537,15 @@ Rectangle {
                         color:"#000"
                         border.color:"#ff0000"
                         border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height
+                                color: parent.parent.border.color
+                            }
+                        }
                     }
                     Rectangle{
                         //155
@@ -538,16 +556,34 @@ Rectangle {
                         color:"#000"
                         border.color:"#fff"
                         border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height
+                                color: parent.parent.border.color
+                            }
+                        }
                     }
                     Rectangle{
                         //155
-                        y:51
+                        y:55
                         x:250
                         width:36
-                        height:104
+                        height:100
                         color:"#000"
                         border.color:"#fff"
                         border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height
+                                color: parent.parent.border.color
+                            }
+                        }
                     }
                     Rectangle{
                         //155
@@ -558,6 +594,15 @@ Rectangle {
                         color:"#000"
                         border.color:"#ff0000"
                         border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height
+                                color: parent.parent.border.color
+                            }
+                        }
                     }
                     Rectangle{
                         x: 60
@@ -574,13 +619,13 @@ Rectangle {
                         color: "#fff"
                     }
                     Text{
-                        y:40
-                        text:"Daily Value"
+                        y:49
+                        text:"Daily Value\n     (%)"
                         color:"#fff"
                     }
                     Rectangle{
                         x:58
-                        y:46
+                        y:55
                         width:6
                         height:2
                     }
