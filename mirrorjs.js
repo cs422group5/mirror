@@ -7,7 +7,8 @@ function click_save(newEmail, newPasswd){
     email = newEmail;
     passwd = newPasswd;
     click_secondlevel("Preferences");
-    googleLogin_Request(email, passwd);
+    googleLogin_Request("cl",email, passwd);
+    googleLogin_Request("finance",email, passwd);
 }
 
 function click_tab(tab){
@@ -326,18 +327,24 @@ function click_icon(app){
     */
 }
 
-function googleLogin_Request(Email, Passwd) {
-    var doc = new XMLHttpRequest(Email, Passwd);
+function googleLogin_Request(service, Email, Passwd) {
+    var doc = new XMLHttpRequest();
     doc.onreadystatechange = function() {
             if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
                 //console.log(doc.getAllResponseHeaders());
             } else if (doc.readyState == XMLHttpRequest.DONE) {
                 var a = doc.responseText;
-                authToken = a.slice([a.indexOf('Auth')+5]);
+                if (service == "finance"){
+                    authTokenFinance = a.slice(a.indexOf('Auth')+5);
+                }
+                else if (service == "cl"){
+                    authTokenCalendar = a.slice(a.indexOf('Auth')+5);
+                }
             }
         }
     doc.open("POST", "https://www.google.com/accounts/ClientLogin", true);
     doc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    doc.send("accountType=HOSTED_OR_GOOGLE&Email="+Email+"&Passwd="+Passwd+"&service=mail&source=Superjova-mirror-1");
+    doc.send("accountType=HOSTED_OR_GOOGLE&Email="+Email+"&Passwd="+Passwd+"&service="+service+"&source=Superjova-mirror-1");
 }
+
 

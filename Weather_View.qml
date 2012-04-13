@@ -35,6 +35,12 @@ Rectangle {
         XmlRole { name: "high"; query: "high/@data/string()" }
         XmlRole { name: "icon"; query: "icon/@data/string()" }
         XmlRole { name: "condition"; query: "condition/@data/string()" }
+        onStatusChanged:{
+            if(weather4dayModel.count>0){
+                texth.text=weather4dayModel.get(0).high+"°C";
+                textl.text=weather4dayModel.get(0).low+"°C";
+            }
+        }
 
     }
 
@@ -47,9 +53,15 @@ Rectangle {
         XmlRole { name: "temp_c"; query: "temp_c/@data/string()" }
         XmlRole { name: "icon"; query: "icon/@data/string()" }
         XmlRole { name: "humidity"; query: "humidity/@data/string()" }
-
+        onStatusChanged:{
+            if(weathertodayModel.count>0){
+                image1.source=weather_view.imageConstPath + weathertodayModel.get(0).icon;
+                text1.text=weathertodayModel.get(0).temp_c+"°C";
+            }
+        }
+        //Component.onCompleted: console.log(weathertodayModel);
     }
-
+/*
     ListView {
 
          id: todayWeather
@@ -63,7 +75,9 @@ Rectangle {
          delegate: Weather_View_Today {
 
          }
-    }
+    }*/
+
+
 
     Button1 {
         id: button11
@@ -71,4 +85,70 @@ Rectangle {
         y: 236
         btnText: "F"
     }
+
+    Image {
+        id: image1
+        x: 26
+        y: 34
+        width: 160
+        height: 160
+    }
+
+    Text {
+        id: text1
+        x: 211
+        y: 46
+        width: 89
+        height: 36
+        color: "#ffffff"
+        font.family: "Arial"
+        font.pixelSize: 32
+    }
+
+    Text {
+        id: text2
+        x: 211
+        y: 102
+        width: 34
+        height: 24
+        color: "#ffffff"
+        text: qsTr("H:")
+        font.family: "Arial"
+        font.pixelSize: 22
+    }
+
+    Text {
+        id: text3
+        x: 211
+        y: 147
+        width: 34
+        height: 24
+        color: "#ffffff"
+        text: qsTr("L:")
+        font.pixelSize: 22
+        font.family: "Arial"
+    }
+
+    Text {
+        id: texth
+        x: 245
+        y: 102
+        width: 55
+        height: 24
+        color: "#ffffff"
+        font.pixelSize: 22
+        font.family: "Arial"
+    }
+
+    Text {
+        id: textl
+        x: 245
+        y: 147
+        width: 55
+        height: 24
+        color: "#ffffff"
+        font.pixelSize: 22
+        font.family: "Arial"
+    }
+
 }
