@@ -7,11 +7,14 @@ Rectangle {
     id:home
     property string email: ""
     property string passwd: ""
-    property string authToken: ""
-    onAuthTokenChanged: console.log("authToken = "+authToken);
+    property string authTokenFinance: ""
+    property string authTokenCalendar: ""
+    onAuthTokenFinanceChanged: console.log("authTokenFinance = "+authTokenFinance);
+    onAuthTokenCalendarChanged: console.log("authTokenCalendar = "+authTokenCalendar);
     Component.onCompleted:
         if (email != "" && passwd != ""){
-            HTTP.googleLogin_Request(email,passwd);
+            HTTP.googleLogin_Request("finance",email,passwd);
+            HTTP.googleLogin_Request("cl",email,passwd);
         }
     width: 1024
     height: 728
