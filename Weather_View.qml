@@ -1,27 +1,29 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
-
+import "weather_func.js" as Wfunc
 Rectangle {
     id:weather_view
     width: 520
     height: 290
     color: "#00000000"
     property string city : "chicago"
+    property int now_tmp : 0
+    property int h_tmp : 0
+    property int l_tmp : 0
+    property bool temperature_f : true
     property string imageConstPath: "http://www.google.com"
     ListView {
 
-         id: list
-         y:0
-         width: 200
-         height: 227
-         x:0
-
-         anchors.right: parent.right
-         anchors.rightMargin: 0
-         model: weather4dayModel
-         delegate: Weather_View_Item {
-
-         }
+        id: list
+        y:0
+        width: 200
+        height: 227
+        x:0
+        anchors.right: parent.right
+        anchors.rightMargin: 0
+        model: weather4dayModel
+        delegate: Weather_View_Item {
+        }
     }
     XmlListModel {
         id: weather4dayModel
@@ -37,8 +39,13 @@ Rectangle {
         XmlRole { name: "condition"; query: "condition/@data/string()" }
         onStatusChanged:{
             if(weather4dayModel.count>0){
-                texth.text=weather4dayModel.get(0).high+"°C";
-                textl.text=weather4dayModel.get(0).low+"°C";
+                if(temperature_f){
+                    h_tmp=Wfunc.ctof(weather4dayModel.get(0).high);
+                    l_tmp=Wfunc.ctof(weather4dayModel.get(0).low);
+                }else{
+                    h_tmp=weather4dayModel.get(0).high;
+                    l_tmp=weather4dayModel.get(0).low;
+                }
             }
         }
 
@@ -56,7 +63,11 @@ Rectangle {
         onStatusChanged:{
             if(weathertodayModel.count>0){
                 image1.source=weather_view.imageConstPath + weathertodayModel.get(0).icon;
-                text1.text=weathertodayModel.get(0).temp_c+"°C";
+                if(temperature_f){
+                    now_tmp=weathertodayModel.get(0).temp_f;
+                }else{
+                    now_tmp=weathertodayModel.get(0).temp_c;
+                }
             }
         }
         //Component.onCompleted: console.log(weathertodayModel);
@@ -83,7 +94,13 @@ Rectangle {
         id: button11
         x: 442
         y: 236
-        btnText: "F"
+        btnText: temperature_f?"to °C":"to F";
+        onClicked: {
+            temperature_f=!temperature_f;
+            weathertodayModel.reload();
+            weather4dayModel.reload();
+
+        }
     }
 
     Image {
@@ -100,6 +117,7 @@ Rectangle {
         y: 46
         width: 89
         height: 36
+        text: now_tmp
         color: "#ffffff"
         font.family: "Arial"
         font.pixelSize: 32
@@ -135,6 +153,7 @@ Rectangle {
         y: 102
         width: 55
         height: 24
+        text: h_tmp
         color: "#ffffff"
         font.pixelSize: 22
         font.family: "Arial"
@@ -146,9 +165,9 @@ Rectangle {
         y: 147
         width: 55
         height: 24
+        text: l_tmp
         color: "#ffffff"
         font.pixelSize: 22
         font.family: "Arial"
     }
-
 }
