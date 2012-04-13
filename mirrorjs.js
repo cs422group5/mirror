@@ -3,6 +3,14 @@ var secondComponent;
 var leftbar = ['Health','Outfit','Stocks','Music','TV'];
 var leftbaropen = [null,null,null,null,null]
 
+function click_save(newEmail, newPasswd){
+    email = newEmail;
+    passwd = newPasswd;
+    click_secondlevel("Preferences");
+    googleLogin_Request("cl",email, passwd);
+    googleLogin_Request("finance",email, passwd);
+}
+
 function click_tab(tab){
     tab_general.hexcolor = "#444";
     tab_google.hexcolor = "#444";
@@ -223,9 +231,23 @@ function click_icon(app){
         }
     }
     else{
-        thirdHealth.visible = false;
-        thirdOutfit.visible = false;
-        thirdStocks.visible = false;
+        if (thirdHealth.visible){
+            thirdHealth.visible = false;
+            secondHealth.hexcolor = "#222";
+            firstHealth.hexcolor = "#222";
+        }
+        else if (thirdOutfit.visible){
+            thirdOutfit.visible = false;
+            secondOutfit.hexcolor = "#222";
+            firstOutfit.hexcolor = "#222";
+        }
+        else if (thirdStocks.visible){
+            thirdStocks.visible = false;
+            secondStocks.hexcolor = "#222";
+            firstStocks.hexcolor = "#222";
+        }
+
+
         if (!thirdPreferences.visible){
             firstPreferences.hexcolor = "#000";
             thirdPreferences.visible = true;
@@ -304,3 +326,25 @@ function click_icon(app){
     }
     */
 }
+
+function googleLogin_Request(service, Email, Passwd) {
+    var doc = new XMLHttpRequest();
+    doc.onreadystatechange = function() {
+            if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+                //console.log(doc.getAllResponseHeaders());
+            } else if (doc.readyState == XMLHttpRequest.DONE) {
+                var a = doc.responseText;
+                if (service == "finance"){
+                    authTokenFinance = a.slice(a.indexOf('Auth')+5);
+                }
+                else if (service == "cl"){
+                    authTokenCalendar = a.slice(a.indexOf('Auth')+5);
+                }
+            }
+        }
+    doc.open("POST", "https://www.google.com/accounts/ClientLogin", true);
+    doc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    doc.send("accountType=HOSTED_OR_GOOGLE&Email="+Email+"&Passwd="+Passwd+"&service="+service+"&source=Superjova-mirror-1");
+}
+
+
