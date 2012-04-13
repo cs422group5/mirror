@@ -12,19 +12,19 @@ Rectangle {
         x:10
         //anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
-        text: "L:70"
+        text: "L:"+weather_view1.l_tmp
         color: "#fff"
     }
     Text{
         x:70
         anchors.verticalCenter: parent.verticalCenter
         //anchors.right: parent.right-10
-        text: "H:90"
+        text: "H:"+weather_view1.h_tmp
         color:"#fff"
     }
     Text{
         anchors.centerIn: parent
-        text:"85"
+        text:weather_view1.now_tmp
         font.pixelSize: 32
         color:"#fff"
     }

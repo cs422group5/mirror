@@ -2,7 +2,7 @@
 import QtQuick 1.1
 
 Rectangle {
-    id: rectangle1
+    id: button1
     width: 48
     height: 48
     color: "#000000"
@@ -11,6 +11,7 @@ Rectangle {
     border.color: "#ffffff"
     smooth: true
     property alias btnText: text1.text
+    signal clicked()
     Text {
         id: text1
         x: 13
@@ -27,9 +28,6 @@ Rectangle {
     MouseArea {
         id: mouse_area1
         anchors.fill: parent
-        onClicked: btn_clicked()
-    }
-    function btn_clicked(){
-        console.log('btn '+text1.text+' clicked');
+        onClicked: button1.clicked()
     }
 }
