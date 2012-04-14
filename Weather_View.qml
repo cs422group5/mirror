@@ -94,7 +94,7 @@ Rectangle {
         id: button11
         x: 442
         y: 236
-        btnText: temperature_f?"to °C":"to F";
+        btnText: temperature_f?"°C":"°F";
         onClicked: {
             temperature_f=!temperature_f;
             weathertodayModel.reload();
