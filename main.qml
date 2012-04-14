@@ -389,20 +389,35 @@ Rectangle {
             width:150
             //color:parent.color
             //INSERT STOCKS APPLICATION HERE
-            Stock{
-                symbol: "GOOG"
-            }
-            Stock{
-                y:20
-                symbol: "MSFT"
-            }
-            Stock{
-                y:40
-                symbol: "AAPL"
-            }
-            Stock{
-                y:60
-                symbol: "FORD"
+            Flickable{
+                id: stockflick
+                anchors.fill: parent
+                clip: true
+                contentWidth: stockflick.width
+                contentHeight: 20*6
+                Stock{
+                    symbol: "GOOG"
+                }
+                Stock{
+                    y:20
+                    symbol: "MSFT"
+                }
+                Stock{
+                    y:40
+                    symbol: "AAPL"
+                }
+                Stock{
+                    y:60
+                    symbol: "FORD"
+                }
+                Stock{
+                    y:80
+                    symbol: "FORD"
+                }
+                Stock{
+                    y:100
+                    symbol: "FORD"
+                }
             }
         }
     }
