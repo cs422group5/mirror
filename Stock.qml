@@ -24,7 +24,8 @@ Item{
               else "#990000"
         radius:4
         Text{
-            x:8
+            x: if(change > 0)5
+                else 8
             text: if(change > 0)"+"+change
                   else change
             font.pixelSize: 12

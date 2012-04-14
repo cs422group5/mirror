@@ -527,7 +527,7 @@ Rectangle {
                         width:36
                         height:74
                         color:"#000"
-                        border.color:"#ff0000"
+                        border.color:"#990000"
                         border.width:2
                         Item{
                             width:parent.width
@@ -584,7 +584,7 @@ Rectangle {
                         width:36
                         height:51
                         color:"#000"
-                        border.color:"#ff0000"
+                        border.color:"#990000"
                         border.width:2
                         Item{
                             width:parent.width
