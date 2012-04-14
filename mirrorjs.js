@@ -3,6 +3,23 @@ var secondComponent;
 var leftbar = ['Health','Outfit','Stocks','Music','TV'];
 var leftbaropen = [null,null,null,null,null]
 
+function click_healthTab(tab){
+    console.log(tab);
+    tab_healthNutrients_Suggest.tabcolor = "#444";
+    tab_healthNutrients_Vit.tabcolor = "#444";
+    content_healthNutrients_Suggest.visible = false;
+    content_healthNutrients_Vit.visible = false;
+
+    if (tab == "vitamin"){
+        tab_healthNutrients_Vit.tabcolor = "#fff";
+        content_healthNutrients_Vit.visible = true;
+    }
+    else{
+        tab_healthNutrients_Suggest.tabcolor = "#fff";
+        content_healthNutrients_Suggest.visible = true;
+    }
+}
+
 function click_health(tab){
     if (tab_health.tabcolor == "#fff"){
         tab_health.tabcolor = "#444";

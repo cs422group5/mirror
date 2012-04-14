@@ -412,7 +412,7 @@ Rectangle {
                 }
                 Stock{
                     y:80
-                    symbol: "FORD"
+                    symbol: "GNW"
                 }
                 Stock{
                     y:100
@@ -503,18 +503,65 @@ Rectangle {
                 id: content_healthNutrients
                 visible: true
                 Text{
-                    color:"#fff"
+                    id: tab_healthNutrients_Vit
+                    property string tabcolor: "#fff"
+                    color: tabcolor
                     text: "Vitamins"
                     font.pixelSize: 16
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_healthTab("vitamin")
+                    }
                 }
                 Text{
+                    id: tab_healthNutrients_Suggest
                     y:24
                     property string tabcolor: "#444"
                     color:tabcolor
                     text: "Suggestions"
                     font.pixelSize: 16
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_healthTab("suggest")
+                    }
                 }
                 Item{
+                    id:content_healthNutrients_Suggest
+                    visible:false
+                    x:116
+                    y:10
+                    Text{
+                        color: "#fff"
+                        text: "A"
+                        font.pixelSize: 24
+                    }
+                    Text{
+                        y:40
+                        color: "#fff"
+                        text: "B"
+                        font.pixelSize: 24
+                    }
+                    Text{
+                        y:80
+                        color: "#fff"
+                        text: "C"
+                        font.pixelSize: 24
+                    }
+                    Text{
+                        y:120
+                        color: "#fff"
+                        text: "D"
+                        font.pixelSize: 24
+                    }
+                    Text{
+                        y:160
+                        color: "#fff"
+                        text: "E"
+                        font.pixelSize: 24
+                    }
+                }
+                Item{
+                    id: content_healthNutrients_Vit
                     x:116
                     Rectangle{
                         //155
