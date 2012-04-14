@@ -17,3 +17,28 @@ function googleLogin_Request(service, Email, Passwd) {
     doc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     doc.send("accountType=HOSTED_OR_GOOGLE&Email="+Email+"&Passwd="+Passwd+"&service="+service+"&source=Superjova-mirror-1");
 }
+
+
+function googleFinance(id, ticker){
+    var doc = new XMLHttpRequest();
+    doc.onreadystatechange = function() {
+            if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+                //console.log(doc.getAllResponseHeaders());
+            } else if (doc.readyState == XMLHttpRequest.DONE) {
+                var a = doc.responseText;
+                a = a.slice(a.indexOf("["));
+                a = eval('(' + a + ')');
+                console.log(a[0].id);
+                //l_cur = current price
+                //c = change
+                //op = open
+                //hi = high
+                //lo = low
+                id.change = a[0].c;
+                id.value = a[0].l_cur;
+            }
+        }
+    doc.open("GET", "http://www.google.com/finance/info?infotype=infoquoteall&q="+ticker, true);
+    //doc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    doc.send();
+}

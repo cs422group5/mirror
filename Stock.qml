@@ -1,6 +1,6 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
-
+import "request.js" as HTTP
 Item{
     property alias symbol: symbol.text
     property real change
@@ -30,5 +30,10 @@ Item{
             font.pixelSize: 12
             color:"#fff"
         }
+    }
+    Timer{
+        triggeredOnStart: HTTP.googleFinance(parent, parent.symbol);
+        interval: 30000; running:true; repeat: true;
+        onTriggered: HTTP.googleFinance(parent, parent.symbol);
     }
 }

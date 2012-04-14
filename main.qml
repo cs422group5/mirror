@@ -391,26 +391,18 @@ Rectangle {
             //INSERT STOCKS APPLICATION HERE
             Stock{
                 symbol: "GOOG"
-                value: 500.5
-                change: 10
             }
             Stock{
                 y:20
                 symbol: "MSFT"
-                value: 25.75
-                change: -2.45
             }
             Stock{
                 y:40
-                symbol: "MSFT"
-                value: 25.75
-                change: -2.45
+                symbol: "AAPL"
             }
             Stock{
                 y:60
-                symbol: "MSFT"
-                value: 25.75
-                change: -2.45
+                symbol: "FORD"
             }
         }
     }
