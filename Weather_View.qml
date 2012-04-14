@@ -117,7 +117,7 @@ Rectangle {
         y: 46
         width: 89
         height: 36
-        text: now_tmp
+        text: now_tmp + (temperature_f?" °F":" °C")
         color: "#ffffff"
         font.family: "Arial"
         font.pixelSize: 32
