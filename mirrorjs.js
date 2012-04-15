@@ -3,26 +3,57 @@ var secondComponent;
 var leftbar = ['Health','Outfit','Stocks','Music','TV'];
 var leftbaropen = [null,null,null,null,null]
 
-function ctabustracker(clicked, value){
+var nexty = 0;
+var oldRoute;
+var oldDirection;
+
+function ctabustracker(clicked, value, id){
     if (clicked == "route"){
+        id.color = "#009999";
+        if (oldRoute)
+        oldRoute.color = "#004444";
+        oldRoute = id;
         ctaDirsXML.source = "http://www.ctabustracker.com/bustime/api/v1/getdirections?key=LbrUEWBqBjeepGRGRrkdriFYn&rt="+value;
         if (!ctaDirContainer.visible)
             ctaDirContainer.visible = true;
-        if (stopsFlick.visible){
-            stopsFlick.visible = false;
-            ctaStopsContainer.visible = false;
-            ctaStops.visible = false;
+        if (!stopsCover.visible){
+            stopsCover.visible = true;
         }
         thirdCTA.global_rt = value;
     }
-    else if (clicked="direction"){
+    else if (clicked=="direction"){
+        id.color = "#009999";
+        if (oldDirection)
+        oldDirection.color = "#004444";
+        oldDirection = id;
         ctaStopsXML.source = "http://www.ctabustracker.com/bustime/api/v1/getstops?key=LbrUEWBqBjeepGRGRrkdriFYn&rt="+thirdCTA.global_rt+"&dir="+value;
-        if (!stopsFlick.visible){
-            stopsFlick.visible = true;
-            ctaStopsContainer.visible = true;
-            ctaStops.visible = true;
+        if (stopsCover.visible){
+            stopsCover.visible = false;
         }
         thirdCTA.global_dir = value;
+    }
+    else{
+        console.log("Here");
+        thirdCTA.global_stpid = value;
+        if (secondComponent == null)
+            secondComponent = Qt.createComponent("../mirror/CTATracker.qml");
+
+        if (secondComponent.status == Component.Ready) {
+            var dynamicObject2 = secondComponent.createObject(ctaDisplay);
+            if (dynamicObject2 == null) {
+                console.log("error creating click");
+                console.log(component.errorString());
+                return false;
+            }
+            dynamicObject2.y = nexty;
+            dynamicObject2.route = thirdCTA.global_rt;
+            dynamicObject2.stpid = value;
+            nexty+=40;
+        } else {
+            console.log("error loading click component");
+            console.log(component.errorString());
+            return false;
+        }
     }
 }
 

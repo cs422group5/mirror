@@ -9,10 +9,6 @@ Rectangle {
     height: 200
     color:hexcolor
     radius:10
-    MouseArea{
-        anchors.fill:parent
-        onClicked: Handler.click_secondlevel(text)
-    }
     Item{
         x:10
         height:20
@@ -28,5 +24,9 @@ Rectangle {
         width:parent.width
         height:2
         color:"#fff"
+    }
+    MouseArea{
+        anchors.fill:parent
+        onClicked: Handler.click_secondlevel(text)
     }
 }
