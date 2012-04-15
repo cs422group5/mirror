@@ -36,6 +36,12 @@ function googleFinance(id, ticker){
                 //lo = low
                 id.change = a[0].c;
                 id.value = a[0].l_cur;
+                id.low = a[0].lo;
+                id.high = a[0].hi;
+                id.closed = a[0].lt;
+                id.company = a[0].name;
+                id.market = a[0].e;
+                id.open = a[0].op;
             }
         }
     doc.open("GET", "http://www.google.com/finance/info?infotype=infoquoteall&q="+ticker, true);

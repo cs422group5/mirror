@@ -1,10 +1,19 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
 import "request.js" as HTTP
+import "mirrorjs.js" as Handler
 Item{
     property alias symbol: symbol.text
     property real change
     property real value
+    property string company
+    property string low
+    property string high
+    property string market
+    property string closed
+    property string open
+    height: 20
+    width:parent.width
     Text{
         id: symbol
         color: "#fff"
@@ -36,5 +45,9 @@ Item{
         triggeredOnStart: HTTP.googleFinance(parent, parent.symbol);
         interval: 30000; running:true; repeat: true;
         onTriggered: HTTP.googleFinance(parent, parent.symbol);
+    }
+    MouseArea{
+        anchors.fill: parent
+        onClicked: Handler.click_stock(parent);
     }
 }

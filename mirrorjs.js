@@ -3,6 +3,26 @@ var secondComponent;
 var leftbar = ['Health','Outfit','Stocks','Music','TV'];
 var leftbaropen = [null,null,null,null,null]
 
+function click_stock(id){
+    if (!thirdStocks.visible){
+        click_secondlevel("Stocks");
+    }
+    stockCompany.text = id.company + " ("+id.market+")";
+    stockPrice.text = id.value;
+    if (id.change < 0){
+        stockChange.text = "(" + id.change + ")";
+        stockChange.color = "#990000";
+    }
+    else{
+        stockChange.text = "(+" + id.change + ")";
+        stockChange.color = "#009900";
+    }
+    stockClosed.text = "Last Updated: "+id.closed;
+    stockOpen.text = id.open;
+    stockLow.text = id.low;
+    stockHigh.text = id.high;
+}
+
 function click_healthTab(tab){
     console.log(tab);
     tab_healthNutrients_Suggest.tabcolor = "#444";

@@ -767,6 +767,91 @@ Rectangle {
     WindowSize3{
         id: thirdStocks
         text: "Stocks"
+        Item{
+            x:20
+            y:29
+            width:480
+            height:280
+            Text{
+                id: stockCompany
+                font.pixelSize: 24
+                color: "#fff"
+            }
+            Text{
+                id: stockPrice
+                y: -10
+                anchors.right: parent.right
+                font.pixelSize: 24
+                color: "#fff"
+            }
+            Text{
+                id: stockChange
+                y:20
+                anchors.right: parent.right
+                font.pixelSize: 18
+                color: "#fff"
+            }
+            Rectangle{
+                y:44
+                height:2
+                width:480
+            }
+            Rectangle{
+                y:60
+                height:190
+                width:270
+                color:"#444"
+            }
+            Text{
+                x:280
+                y:60
+                font.pixelSize: 24
+                color:"#fff"
+                text: "Open:"
+            }
+            Text{
+                x:280
+                y:90
+                font.pixelSize: 24
+                color:"#fff"
+                text: "Low"
+            }
+            Text{
+                x:280
+                y:120
+                font.pixelSize: 24
+                color:"#fff"
+                text: "High"
+            }
+            Text{
+                anchors.right: parent.right
+                y:60
+                id: stockOpen
+                font.pixelSize: 24
+                color:"#fff"
+            }
+            Text{
+                anchors.right: parent.right
+                y:90
+                id: stockLow
+                font.pixelSize: 24
+                color:"#fff"
+            }
+            Text{
+                anchors.right: parent.right
+                y:120
+                id: stockHigh
+                font.pixelSize: 24
+                color:"#fff"
+            }
+            Text{
+                id: stockClosed
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                color:"#999"
+                font.pixelSize: 18
+            }
+        }
     }
 
     //Large weather window
