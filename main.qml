@@ -18,6 +18,15 @@ Rectangle {
         }
     width: 1024
     height: 728
+    Rectangle{
+        width: 100
+        height:40
+        MouseArea{
+            anchors.fill: parent
+            onClicked: HTTP.ctabustracker()
+        }
+    }
+
     Header{
         id:topright
         hexcolor:"#444"
@@ -1140,6 +1149,189 @@ Rectangle {
     WindowSize3{
         id: thirdCTA
         text: "CTA"
+        property string global_dir
+        property string global_rt
+        property string global_stpid
+        Item{
+            x:10
+            y:29
+            width:500
+            height:270
+            Item{
+                height:parent.height
+                width:200
+                Flickable{
+                    id:ctaFlick
+                    clip:true
+                    anchors.fill: parent
+                    contentWidth: ctaFlick.width
+                    contentHeight: ctaRoutesXML.count*40
+                    ListView {
+                        id: view
+                        height: ctaRoutesXML.count*40
+                        model: ctaRoutesXML
+                        delegate: ctaRoute
+                      }
+                    XmlListModel {
+                         id: ctaRoutesXML
+                         source: "http://www.ctabustracker.com/bustime/api/v1/getroutes?key=LbrUEWBqBjeepGRGRrkdriFYn"
+                         query: "/bustime-response/route"
+                         XmlRole { name: "rt"; query: "rt/string()" }
+                         XmlRole { name: "rtnm"; query: "rtnm/string()" }
+                     }
+                    Component{
+                        id:ctaRoute
+                        Item{
+                            height:40
+                            width:160
+                            Rectangle{
+                                width: 190
+                                height:30
+                                color:"#009999"
+                                radius: 5
+                                Text{
+                                    x:10
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text:rt + " - "+rtnm
+                                    color:"#fff"
+                                    font.pixelSize: 12
+                                }
+                                MouseArea{
+                                    anchors.fill: parent
+                                    onClicked: Handler.ctabustracker("route",rt)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Rectangle{
+                width:2
+                height:parent.height
+                x:200
+            }
+            Item{
+                property string dir1
+                id: ctaDirContainer
+                visible: false;
+                x:210
+                width:30
+                height:parent.height
+                ListView {
+                    id: dirView
+                    model: ctaDirsXML
+                    delegate: ctaDir
+                  }
+                XmlListModel {
+                     id: ctaDirsXML
+                     //source: "http://www.ctabustracker.com/bustime/api/v1/getdirections?key=LbrUEWBqBjeepGRGRrkdriFYn&rt=20"+global_rt
+                     query: "/bustime-response"
+                     XmlRole { name: "dir"; query: "string()" }
+                 }
+                Component{
+                    id: ctaDir
+                    Item{
+                        Rectangle{
+                            id: ctadir1
+                            property string direction
+                            color:"#009999"
+                            height:130
+                            width:30
+                            radius:5
+                            Text{
+                                id: ctadirtext1
+                                anchors.centerIn: parent
+                                //text: dir
+                                text:{var splitDir = dir.split(" ");
+                                    splitDir[5] = splitDir[5].substr(0,5);
+                                    splitDir[10] = splitDir[10].substr(0,5);
+                                    ctadir1.direction=splitDir[4] + " " + splitDir[5];//4=5 9=10
+                                        ctadirtext1.text = parent.direction.charAt(0);
+                                    ctadir2.direction=splitDir[9] + " " + splitDir[10];//4=5 9=10
+                                        ctadirtext2.text = ctadir2.direction.charAt(0);}
+                                font.pixelSize: 32
+                                color:"#fff"
+                            }
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: Handler.ctabustracker("direction",parent.direction)
+                            }
+                        }
+                        Rectangle{
+                            id: ctadir2
+                            property string direction
+                            y:140
+                            color:"#009999"
+                            height:130
+                            width:30
+                            radius:5
+                            Text{
+                                id: ctadirtext2
+                                anchors.centerIn: parent
+                                font.pixelSize: 32
+                                color:"#fff"
+                            }
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: Handler.ctabustracker("direction",parent.direction)
+                            }
+                        }
+                    }
+                }
+            }
+            Rectangle{
+                width:2
+                height:parent.height
+                x:250
+            }
+            Item{
+                id: ctaStopsContainer
+                x:262
+                width:238
+                height:parent.height
+                Flickable{
+                    id:stopsFlick
+                    visible: false
+                    clip:true
+                    anchors.fill: parent
+                    contentWidth: stopsFlick.width
+                    contentHeight: ctaStopsXML.count*40
+                    ListView {
+                        id: ctaStops
+                        height: ctaStopsXML.count*40
+                        model: ctaStopsXML
+                        delegate: ctaStop
+                      }
+                    XmlListModel {
+                         id: ctaStopsXML
+                         //source: "http://www.ctabustracker.com/bustime/api/v1/getstops?key=LbrUEWBqBjeepGRGRrkdriFYn&rt=20&dir=East%20Bound"
+                         query: "/bustime-response/stop"
+                         XmlRole { name: "stpid"; query: "stpid/string()" }
+                         XmlRole { name: "stpnm"; query: "stpnm/string()" }
+                     }
+                    Component{
+                        id:ctaStop
+                        Item{
+                            height:40
+                            width:240
+                            Rectangle{
+                                width: 238
+                                height:30
+                                color:"#009999"
+                                radius: 5
+                                Text{
+                                    x:10
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text:stpnm
+                                    color:"#fff"
+                                    font.pixelSize: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     //Large Calendar Window

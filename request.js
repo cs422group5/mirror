@@ -28,7 +28,6 @@ function googleFinance(id, ticker){
                 var a = doc.responseText;
                 a = a.slice(a.indexOf("["));
                 a = eval('(' + a + ')');
-                console.log(a[0].id);
                 //l_cur = current price
                 //c = change
                 //op = open
@@ -45,6 +44,21 @@ function googleFinance(id, ticker){
             }
         }
     doc.open("GET", "http://www.google.com/finance/info?infotype=infoquoteall&q="+ticker, true);
+    //doc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    doc.send();
+}
+
+function ctabustracker(){
+    var doc = new XMLHttpRequest();
+    doc.onreadystatechange = function() {
+            if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+                //console.log(doc.getAllResponseHeaders());
+            } else if (doc.readyState == XMLHttpRequest.DONE) {
+                var a = doc.responseText;
+                console.log(a);
+            }
+        }
+    doc.open("GET", "http://www.ctabustracker.com/bustime/api/v1/getroutes?key=LbrUEWBqBjeepGRGRrkdriFYn", true);
     //doc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     doc.send();
 }

@@ -3,6 +3,29 @@ var secondComponent;
 var leftbar = ['Health','Outfit','Stocks','Music','TV'];
 var leftbaropen = [null,null,null,null,null]
 
+function ctabustracker(clicked, value){
+    if (clicked == "route"){
+        ctaDirsXML.source = "http://www.ctabustracker.com/bustime/api/v1/getdirections?key=LbrUEWBqBjeepGRGRrkdriFYn&rt="+value;
+        if (!ctaDirContainer.visible)
+            ctaDirContainer.visible = true;
+        if (stopsFlick.visible){
+            stopsFlick.visible = false;
+            ctaStopsContainer.visible = false;
+            ctaStops.visible = false;
+        }
+        thirdCTA.global_rt = value;
+    }
+    else if (clicked="direction"){
+        ctaStopsXML.source = "http://www.ctabustracker.com/bustime/api/v1/getstops?key=LbrUEWBqBjeepGRGRrkdriFYn&rt="+thirdCTA.global_rt+"&dir="+value;
+        if (!stopsFlick.visible){
+            stopsFlick.visible = true;
+            ctaStopsContainer.visible = true;
+            ctaStops.visible = true;
+        }
+        thirdCTA.global_dir = value;
+    }
+}
+
 function click_stock(id){
     if (!thirdStocks.visible){
         click_secondlevel("Stocks");
