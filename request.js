@@ -56,8 +56,10 @@ function ctabustracker(id){
             } else if (doc.readyState == XMLHttpRequest.DONE) {
                 var a = doc.responseText;
                 var stopname = "Not Operating"
-                if (a.indexOf("<stpnm>") > 0)
+                if (a.indexOf("<stpnm>") > 0){
                     stopname = a.substring(a.indexOf("<stpnm>")+7, a.indexOf("</stpnm>"));
+                    stopname=stopname.replace("&amp;","&");
+                }
                 id.stop = stopname;
                 var eta = "N/A";
                 //console.log(a);

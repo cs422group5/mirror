@@ -1187,7 +1187,7 @@ Rectangle {
                             Rectangle{
                                 width: 190
                                 height:30
-                                color:"#009999"
+                                color:"#004444"
                                 radius: 5
                                 Text{
                                     x:10
@@ -1198,7 +1198,7 @@ Rectangle {
                                 }
                                 MouseArea{
                                     anchors.fill: parent
-                                    onClicked: Handler.ctabustracker("route",rt)
+                                    onClicked: Handler.ctabustracker("route",rt,parent)
                                 }
                             }
                         }
@@ -1224,7 +1224,7 @@ Rectangle {
                   }
                 XmlListModel {
                      id: ctaDirsXML
-                     //source: "http://www.ctabustracker.com/bustime/api/v1/getdirections?key=LbrUEWBqBjeepGRGRrkdriFYn&rt=20"+global_rt
+                     source: "http://www.ctabustracker.com/bustime/api/v1/getdirections?key=LbrUEWBqBjeepGRGRrkdriFYn&rt=20"
                      query: "/bustime-response"
                      XmlRole { name: "dir"; query: "string()" }
                  }
@@ -1234,7 +1234,7 @@ Rectangle {
                         Rectangle{
                             id: ctadir1
                             property string direction
-                            color:"#009999"
+                            color:"#004444"
                             height:130
                             width:30
                             radius:5
@@ -1254,14 +1254,14 @@ Rectangle {
                             }
                             MouseArea{
                                 anchors.fill: parent
-                                onClicked: Handler.ctabustracker("direction",parent.direction)
+                                onClicked: Handler.ctabustracker("direction",parent.direction, parent)
                             }
                         }
                         Rectangle{
                             id: ctadir2
                             property string direction
                             y:140
-                            color:"#009999"
+                            color:"#004444"
                             height:130
                             width:30
                             radius:5
@@ -1273,7 +1273,7 @@ Rectangle {
                             }
                             MouseArea{
                                 anchors.fill: parent
-                                onClicked: Handler.ctabustracker("direction",parent.direction)
+                                onClicked: Handler.ctabustracker("direction",parent.direction, parent)
                             }
                         }
                     }
@@ -1291,7 +1291,6 @@ Rectangle {
                 height:parent.height
                 Flickable{
                     id:stopsFlick
-                    visible: false
                     clip:true
                     anchors.fill: parent
                     contentWidth: stopsFlick.width
@@ -1304,7 +1303,7 @@ Rectangle {
                       }
                     XmlListModel {
                          id: ctaStopsXML
-                         //source: "http://www.ctabustracker.com/bustime/api/v1/getstops?key=LbrUEWBqBjeepGRGRrkdriFYn&rt=20&dir=East%20Bound"
+                         source: "http://www.ctabustracker.com/bustime/api/v1/getstops?key=LbrUEWBqBjeepGRGRrkdriFYn&rt=20&dir=East%20Bound"
                          query: "/bustime-response/stop"
                          XmlRole { name: "stpid"; query: "stpid/string()" }
                          XmlRole { name: "stpnm"; query: "stpnm/string()" }
@@ -1317,7 +1316,7 @@ Rectangle {
                             Rectangle{
                                 width: 238
                                 height:30
-                                color:"#009999"
+                                color:"#004444"
                                 radius: 5
                                 Text{
                                     x:10
@@ -1326,10 +1325,21 @@ Rectangle {
                                     color:"#fff"
                                     font.pixelSize: 12
                                 }
+                                MouseArea{
+                                    anchors.fill: parent
+                                    onClicked: Handler.ctabustracker("stop", stpid, parent)
+                                }
                             }
                         }
                     }
                 }
+            }
+            Rectangle{
+                id: stopsCover
+                x:262
+                width:238
+                height:parent.height
+                color:"#000"
             }
         }
     }
@@ -1370,6 +1380,7 @@ Rectangle {
         x:784
         y:110
         Item{
+            id: ctaDisplay
             x:10
             y:20
             height:170

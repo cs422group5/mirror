@@ -3,7 +3,6 @@ import QtQuick 1.1
 import "request.js" as HTTP
 Item {
     property string stop
-    property string routeName
     property string route
     property string stpid
     property int eta
@@ -21,7 +20,7 @@ Item {
             Text{
                 anchors.left: parent.left
                 font.pixelSize: 14
-                text: routeName
+                text: route
                 color:"#fff"
             }
             Text{
