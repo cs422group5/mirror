@@ -760,6 +760,127 @@ Rectangle {
         id: thirdOutfit
         text: "Outfit"
         visible: false
+        Item{
+            x:20
+            y:39
+            width:480
+            height:260
+            Item{
+                height:80
+                width:60
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text:"Hat"
+                    color:"#fff"
+                }
+            }
+            Item{
+                y:90
+                width:60
+                height:80
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text:"Top Accessories"
+                    color:"#fff"
+                }
+            }
+            Item{
+                y:180
+                width:60
+                height:80
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text: "Shirt"
+                    color:"#fff"
+                }
+            }
+            Item{
+                anchors.right: parent.right
+                width:60
+                height:80
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text: "Accessories"
+                    color:"#fff"
+                }
+            }
+            Item{
+                y:90
+                anchors.right: parent.right
+                height:80
+                width:60
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text: "Underwear"
+                    color:"#fff"
+                }
+            }
+            Item{
+                anchors.right: parent.right
+                y:180
+                width:60
+                height:80
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text: "Legs"
+                    color:"#fff"
+                }
+            }
+            Item{
+                y:180
+                x:140
+                height:80
+                width:60
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text: "Socks"
+                    color:"#fff"
+                }
+            }
+            Item{
+                x:280
+                y:180
+                width:60
+                height:80
+                Rectangle{
+                    width:60
+                    height:60
+                }
+                Text{
+                    anchors.bottom: parent.bottom
+                    text: "Shoes"
+                    color:"#fff"
+                }
+            }
+        }
     }
 
     //Large stock window
