@@ -7,6 +7,47 @@ var nexty = 0;
 var oldRoute;
 var oldDirection;
 
+function login(action){
+    if (action == "in"){
+        loginScreen.visible = false;
+        logged.visible = true;
+    }
+    else{
+        if(secondHealth.visible){
+            click_icon("Health");
+        }
+        if(secondOutfit.visible){
+            click_icon("Outfit");
+        }
+        if(secondStocks.visible){
+            click_icon("Stocks");
+        }
+        if(secondMusic.visible){
+            click_icon("Music");
+        }
+        if(secondTV.visible){
+            click_icon("TV");
+        }
+        if(secondWeather.visible){
+            click_icon("Weather");
+        }
+        if(thirdCTA.visible){
+            click_secondlevel("CTA");
+        }
+        if(thirdCalendar.visible){
+            click_secondlevel("Calendar");
+        }
+        if(thirdWeather.visible){
+            click_secondlevel("Weather");
+        }
+        if(thirdPreferences.visible){
+            click_icon("Pref");
+        }
+        logged.visible = false;
+        loginScreen.visible = true;
+    }
+}
+
 function ctabustracker(clicked, value, id){
     if (clicked == "route" && oldRoute != id){
         id.color = "#009999";
@@ -402,7 +443,7 @@ function click_icon(app){
             secondTV.visible = false;
         }
     }
-    else{
+    else if (app=="Pref"){
         if (thirdHealth.visible){
             thirdHealth.visible = false;
             secondHealth.hexcolor = "#222";
