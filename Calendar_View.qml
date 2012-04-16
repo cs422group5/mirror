@@ -7,69 +7,50 @@ Rectangle {
     height: 290
     color: "#00000000"
     radius: 10
-    Button1 {
-        id: button11
-        x: 118
-        y: 275
-        width: 39
-        height: 39
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 6
-        btnText: "W"
-    }
+    clip: true
+    ListView {
+        id: calendar_list_view
+        model: listsModel
+        spacing: 1
+        property real contentBottom: contentY + height
+        x: 50
+        y: 21
+        width: 420
+        height: 236
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        delegate:Calendar_View_Item{
+                id:calendar_view_item
+                theText:text
+                theType: type
+        }
+        ListModel {
+            id: listsModel
+            Component.onCompleted: loadCalendarView()
+            function loadCalendarView() {
+                console.log("aa");
+                listsModel.clear();
+                listsModel.append( {"text":"Today:"+showdate(0),"type":1});
+                listsModel.append( {"text":"09:30 - 10:45 / CS 422","type":0});
+                listsModel.append( {"text":"12:30 - 13:00 / Office Hour","type":0});
+                listsModel.append( {"text":"15:30 - 16:45 / CS 525","type":0});
+                listsModel.append( {"text":"Tomorrow:"+showdate(3600*24),"type":1});
+                listsModel.append( {"text":"15:00 - 16:15 / taking class","type":0});
+                listsModel.append( {"text":showdate(3600*24*2),"type":1});
+                listsModel.append( {"text":"From: 10:30 - 16:30 / Movie","type":0});
+                listsModel.append( {"text":"From: 18:00 - 20:00 / Dinner with Joe","type":0});
+            }
+            function showdate(offset){
+                var d = new Date();
+                var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+                var nd = new Date(utc + (1000*offset));
+                var fulldate = nd.toDateString();
+                fulldate = fulldate.slice(0,fulldate.length-4);
+                return fulldate;
+            }
 
-    Button1 {
-        id: button12
-        x: 61
-        y: 275
-        width: 39
-        height: 39
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 6
-        btnText: "D"
-    }
+        }
 
-    Button1 {
-        id: button13
-        x: 175
-        y: 275
-        width: 39
-        height: 39
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 6
-        btnText: "M"
-    }
 
-    Button1 {
-        id: button14
-        x: 233
-        y: 275
-        width: 39
-        height: 39
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 6
-        btnText: "4D"
-    }
-
-    Button1 {
-        id: button15
-        x: 290
-        y: 275
-        width: 39
-        height: 39
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 6
-        btnText: "A"
-    }
-
-    Button1 {
-        id: button16
-        x: 391
-        y: 265
-        width: 82
-        height: 49
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 6
-        btnText: "Options"
     }
 }

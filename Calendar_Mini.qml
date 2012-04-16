@@ -25,29 +25,17 @@ ListView {
             console.log("aa");
             listsModel.clear();
             listsModel.append( {
-                                  "time_from": "12:00",
-                                  "time_to": "16:00",
-                                  "jobs": "test class" });
+                                  "time_from": "09:30",
+                                  "time_to": "10:45",
+                                  "jobs": "CS 422" });
             listsModel.append( {
-                                  "time_from": "17:00",
-                                  "time_to": "18:00",
-                                  "jobs": "test class2" });
+                                  "time_from": "12:30",
+                                  "time_to": "13:00",
+                                  "jobs": "Office Hour" });
             listsModel.append( {
-                                  "time_from": "12:00",
-                                  "time_to": "16:00",
-                                  "jobs": "test class" });
-            listsModel.append( {
-                                  "time_from": "17:00",
-                                  "time_to": "18:00",
-                                  "jobs": "test class2" });
-            listsModel.append( {
-                                  "time_from": "12:00",
-                                  "time_to": "16:00",
-                                  "jobs": "test class" });
-            listsModel.append( {
-                                  "time_from": "17:00",
-                                  "time_to": "18:00",
-                                  "jobs": "test class2" });
+                                  "time_from": "15:30",
+                                  "time_to": "16:45",
+                                  "jobs": "CS 525" });
         }
 
     }
