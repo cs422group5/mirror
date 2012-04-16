@@ -1098,21 +1098,340 @@ Rectangle {
                     Text{
                         text:"Height"
                         font.pixelSize: 16
+                        color:"#fff"
                     }
                     Text{
-                        text:"Height"
+                        y:24
+                        text:"5'11\""
+                        color:"#fff"
                     }
                     Text{
+                        y:44
+                        font.pixelSize: 16
                         text:"Weight"
+                        color:"#fff"
                     }
                     Text{
-                        text:"Height"
+                        y:68
+                        text:"171 lbs"
+                        color:"#fff"
+                    }
+                    Text{
+                        y:88
+                        font.pixelSize: 16
+                        text:"BMI"
+                        color:"#fff"
+                    }
+                    Text{
+                        y:112
+                        text:"8"
+                        color:"#fff"
+                    }
+                    Rectangle{
+                        //155
+                        y:115
+                        x:70
+                        width:36
+                        height:40
+                        color:"#000"
+                        border.color:"#990000"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:65
+                        x:130
+                        width:36
+                        height:90
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:75
+                        x:190
+                        width:36
+                        height:80
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:99
+                        x:250
+                        width:36
+                        height:56
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height+"%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:54
+                        x:310
+                        width:36
+                        height:100
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Item{
+                        x: 60
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "Steps"
+                            color:"#fff"
+                        }
+                    }
+                    Item{
+                        x: 120
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "BP"
+                            color:"#fff"
+                        }
+                    }
+                    Item{
+                        x: 180
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "Heart Rate"
+                            color:"#fff"
+                        }
+                    }
+                    Item{
+                        x: 240
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "Strength"
+                            color:"#fff"
+                        }
+                    }
+                    Item{
+                        x: 300
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "Endurance"
+                            color:"#fff"
+                        }
+                    }
+                    Rectangle{
+                        x:58
+                        y:55
+                        width:6
+                        height:2
+                    }
+                    Text{
+                        x:70
+                        y:49
+                        text:"AVG"
+                        color:"#fff"
+                    }
+                    Rectangle{
+                        x: 60
+                        y:4
+                        width:2
+                        height:150
+                        color: "#fff"
+                    }
+                    Rectangle{
+                        x: 60
+                        y:154
+                        width:300
+                        height:2
+                        color: "#fff"
                     }
                 }
                 Item{
                     id: content_healthExercise_Suggestions
                     x:116
                     visible: false
+                    Rectangle{
+                        x:90
+                        height:210
+                        width:2
+                    }
+                    Rectangle{
+                        x:180
+                        height:210
+                        width:2
+                    }
+                    Rectangle{
+                        x:270
+                        height:210
+                        width:2
+                    }
+                    Rectangle{
+                        y:105
+                        height:2
+                        width:360
+                    }
+                    Item{
+                        x:10
+                        Text{
+                            color:"#fff"
+                            text:"MON"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Biceps/Triceps"
+                        }
+                    }
+                    Item{
+                        x:100
+                        Text{
+                            color:"#fff"
+                            text:"TUE"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Pushups"
+                        }
+                    }
+                    Item{
+                        x:190
+                        Text{
+                            color:"#fff"
+                            text:"WED"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Biceps/Triceps"
+                        }
+                        Text{
+                            y:50
+                            color:"#fff"
+                            text:"Legs"
+                        }
+                    }
+                    Item{
+                        x:280
+                        Text{
+                            color:"#fff"
+                            text:"THU"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Run 3 miles"
+                        }
+                    }
+                    Item{
+                        x:10
+                        y:115
+                        Text{
+                            color:"#fff"
+                            text:"FRI"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Take a break"
+                        }
+                    }
+                    Item{
+                        x:100
+                        y:115
+                        Text{
+                            color:"#fff"
+                            text:"SAT"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Run in park"
+                        }
+                        Text{
+                            y:50
+                            color:"#fff"
+                            text:"Pick up chicks"
+                        }
+                    }
+                    Item{
+                        x:190
+                        y:115
+                        Text{
+                            color:"#fff"
+                            text:"SUN"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Interval Training"
+                        }
+                    }
                 }
             }
             Item{
@@ -1122,7 +1441,7 @@ Rectangle {
                 visible: false
                 Text{
                     id: tab_healthSleep_Sleep
-                    property string tabcolor: "#444"
+                    property string tabcolor: "#fff"
                     color:tabcolor
                     text: "Sleep"
                     font.pixelSize: 16
@@ -1130,6 +1449,121 @@ Rectangle {
                 Item{
                     id: content_healthSleep_Sleep
                     x:116
+                    Rectangle{
+                        //155
+                        y:97
+                        x:70
+                        width:36
+                        height:58
+                        color:"#000"
+                        border.color:"#990000"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:65
+                        x:130
+                        width:36
+                        height:90
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:56
+                        x:190
+                        width:36
+                        height:99
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:20
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Item{
+                        x: 60
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "Sleep"
+                            color:"#fff"
+                        }
+                    }
+                    Item{
+                        x: 120
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "REM"
+                            color:"#fff"
+                        }
+                    }
+                    Item{
+                        x: 180
+                        y:156
+                        width:60
+                        height:55
+                        Text{
+                            anchors.centerIn: parent
+                            text: "Efficiency"
+                            color:"#fff"
+                        }
+                    }
+                    Rectangle{
+                        x:58
+                        y:55
+                        width:6
+                        height:2
+                    }
+                    Text{
+                        y:49
+                        text:"Healthy"
+                        color:"#fff"
+                    }
+                    Rectangle{
+                        x: 60
+                        y:4
+                        width:2
+                        height:150
+                        color: "#fff"
+                    }
+                    Rectangle{
+                        x: 60
+                        y:154
+                        width:300
+                        height:2
+                        color: "#fff"
+                    }
                 }
             }
             Rectangle{
@@ -1831,6 +2265,80 @@ Rectangle {
             width:220
             //color:"#222"
             //INSERT TODOLIST APPLICATION HERE
+            Item{
+                Rectangle{
+                    width:8
+                    height:8
+                    border.width:2
+                    border.color:"#fff"
+                    color:firstTodo.hexcolor
+                }
+                Text{
+                    x:30
+                    color: "#fff"
+                    text: "Get Ready (Brush Teeth, Shower)"
+                }
+            }
+            Item{
+                y:20
+                Rectangle{
+                    width:8
+                    height:8
+                    border.width:2
+                    border.color:"#fff"
+                    color:firstTodo.hexcolor
+                }
+                Text{
+                    x:30
+                    color: "#fff"
+                    text: "Medicine (Ridlin, Alleve)"
+                }
+            }
+            Item{
+                y:40
+                Rectangle{
+                    width:8
+                    height:8
+                    border.width:2
+                    border.color:"#fff"
+                    color:firstTodo.hexcolor
+                }
+                Text{
+                    x:30
+                    color: "#fff"
+                    text: "Exercise (Pushups)"
+                }
+            }
+            Item{
+                y:60
+                Rectangle{
+                    width:8
+                    height:8
+                    border.width:2
+                    border.color:"#990000"
+                    color:firstTodo.hexcolor
+                }
+                Text{
+                    x:30
+                    color: "#fff"
+                    text: "Laundry (Underwear,Shirts)"
+                }
+            }
+            Item{
+                y:80
+                Rectangle{
+                    width:8
+                    height:8
+                    border.width:2
+                    border.color:"#990000"
+                    color:firstTodo.hexcolor
+                }
+                Text{
+                    x:30
+                    color: "#fff"
+                    text: "Refill Prescription (Ridlin)"
+                }
+            }
         }
     }
 

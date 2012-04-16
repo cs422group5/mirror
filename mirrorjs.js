@@ -424,6 +424,14 @@ function click_icon(app){
             secondStocks.hexcolor = "#222";
             firstStocks.hexcolor = "#222";
         }
+        else if (thirdCalendar.visible){
+            thirdCalendar.visible = false;
+            firstCalendar.hexcolor = "#444";
+        }
+        else if (thirdCTA.visible){
+            thirdCTA.visible = false;
+            firstCTA.hexcolor = "#444";
+        }
 
 
         if (!thirdPreferences.visible){
