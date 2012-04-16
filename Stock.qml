@@ -42,9 +42,8 @@ Item{
         }
     }
     Timer{
-        interval: 30000; running:true; repeat: true;
+        interval: 5000; running:true; repeat: true;
         onTriggered: HTTP.googleFinance(parent, parent.symbol);
-        triggeredOnStart: HTTP.googleFinance(parent, parent.symbol);
     }
     MouseArea{
         anchors.fill: parent
