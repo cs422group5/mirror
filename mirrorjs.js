@@ -8,7 +8,7 @@ var oldRoute;
 var oldDirection;
 
 function ctabustracker(clicked, value, id){
-    if (clicked == "route"){
+    if (clicked == "route" && oldRoute != id){
         id.color = "#009999";
         if (oldRoute)
         oldRoute.color = "#004444";
@@ -21,7 +21,7 @@ function ctabustracker(clicked, value, id){
         }
         thirdCTA.global_rt = value;
     }
-    else if (clicked=="direction"){
+    else if (clicked=="direction" && oldDirection != id){
         id.color = "#009999";
         if (oldDirection)
         oldDirection.color = "#004444";
@@ -32,7 +32,7 @@ function ctabustracker(clicked, value, id){
         }
         thirdCTA.global_dir = value;
     }
-    else{
+    else if(clicked == "stop"){
         console.log("Here");
         thirdCTA.global_stpid = value;
         if (secondComponent == null)
