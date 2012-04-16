@@ -24,15 +24,6 @@ Rectangle {
              source: "background.png"
          }
 
-    Rectangle{
-        width: 100
-        height:40
-        MouseArea{
-            anchors.fill: parent
-            onClicked: HTTP.ctabustracker()
-        }
-    }
-
     Header{
         id:topright
         hexcolor:"#444"
