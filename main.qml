@@ -83,9 +83,9 @@ Rectangle {
             hexcolor:"#444"
             x:570
             y:-40
-            onClicked:{
-                clocks_view1.visible=!clocks_view1.visible;
-            }
+            //onClicked:{
+            //    clocks_view1.visible=!clocks_view1.visible;
+            //}
         }
         WeatherIcon{
             id: secondWeather
