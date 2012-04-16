@@ -365,6 +365,19 @@ function click_secondlevel(app){
     }
 }
 
+function click_artist(artist){
+    content_DeepPurple.visible =false;
+    content_Boston.visible=false;
+    content_AmonAmarth.visible=false;
+    if(artist=="Deep Purple")
+        content_DeepPurple.visible=true;
+    else if(artist=="Boston")
+        content_Boston.visible=true;
+    else
+        content_AmonAmarth.visible=true;
+
+}
+
 function click_icon(app){
     var yPos = 0;
     var open = 0;

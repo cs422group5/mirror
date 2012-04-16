@@ -494,26 +494,220 @@ Rectangle {
                 height:250
                 width:320
                 color:"#000"
-                //INSERT MUSIC APPLICATION HERE
+
+                Item{
+                Rectangle{
+                     y:50
+                     x:-5
+                        width:100
+                        height:210
+                        color:"#000"
+                        border.width:2
+                        border.color:"#fff"
+
+
+                    }
+                Rectangle{
+                    y:50;
+                    x:100;
+                    width:220;
+                    height:210;
+                    color:"#000"
+                    border.width: 2
+                    border.color:"#fff"
+
+                    Item{
+                        x:10
+                        id: content_Boston
+                        visible: false
+                        Text{
+                            y:10
+                            color:"#fff"
+                            text: "Don't Look Back"
+                        }
+                        Text{
+                            y:25
+                            color:"#fff"
+                            text: "More Than A Feeling"
+                        }
+                        Text{
+                            y:40
+                            color:"#fff"
+                            text: "Smokin'"
+                        }
+                        Text{
+                            y:55
+                            color:"#fff"
+                            text: "Rock and Roll Band"
+                        }
+                    }
+                    Item{
+                        x:10
+                        id: content_AmonAmarth
+                        visible: false
+                        Text{
+                            y:10
+                            color:"#fff"
+                            text: "Varyags Of Miklagaard"
+                        }
+                        Text{
+                            y:25
+                            color:"#fff"
+                            text: "With Odin On Our Side"
+                        }
+                        Text{
+                            y:40
+                            color:"#fff"
+                            text: "Twilight Of The Thunder God"
+    }
+                    }
+                    Item{
+                        x:10
+                        id: content_DeepPurple
+                        visible: false
+                        Text{
+                            y:10
+                            color:"#fff"
+                            text: "Smoke On The Water"
+                        }
+                        Text{
+                            y:25
+                            color:"#fff"
+                            text: "Burn"
+                        }
+                        Text{
+                            y:40
+                            color:"#fff"
+                            text: "Stormbringer'"
+                        }
+                        Text{
+                            y:55
+                            color:"#fff"
+                            text: "Knocking At Your Back Door"
+                        }
+                    }
+                }
+                Image {
+                         x:50
+                         y:5
+                         id: stopmusic
+                         source: "stop.png"
+                         MouseArea{
+                             anchors.fill: parent
+                             onClicked:playmusic.visible=true
+                         }
+                     }
+                Image {
+                         x:50
+                         y:5
+                         id: playmusic
+                         source: "play.png"
+                         MouseArea{
+                             anchors.fill: parent
+                             onClicked:playmusic.visible=false
+
+                         }
+                     }
+                Image {
+                         x:140
+                         y:5
+                         id: volumemusic
+                         source: "volume.png"
+
+                     }
+
+
+
+
+                Text{
+                    y:60
+                    id: tab_Boston
+                    color: "#fff"
+                    text:"Boston"
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_artist(parent.text)
+                    }
+                }
+                Text{
+                    y:85
+                    id: tab_AmonAmarth
+                    color: "#fff"
+                    text:"Amon Amarth"
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_artist(parent.text)
+                    }
+                }
+                Text{
+                    y:110
+                    id: tab_DeepPurple
+                    color: "#fff"
+                    text:"Deep Purple"
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_artist(parent.text)
+                    }
+                }
+                }
+
+
+
             }
         }
 
-        //TV Window
-        //Allows starting television, turning off, increase in volume, channel selection.
-        Music_TV_Window{
-            id: secondTV
-            text: "TV"
-            x:70
-            y:440
-            Rectangle{
-                x:10
-                y:20
-                height:250
-                width:320
-                color:"#000"
-                //INSERT TV APPLICATION HERE
-            }
-        }
+//TV Window
+//Allows starting television, turning off, increase in volume, channel selection.
+Music_TV_Window{
+    id: secondTV
+    text: "TV"
+    x:70
+    y:440
+
+    Rectangle{
+        x:10
+        y:20
+        height:250
+        width:320
+        color:"#000"
+        //INSERT TV APPLICATION HERE
+    }
+    Image {
+             x:60
+             y:25
+             id: stoptv
+             source: "stop.png"
+             MouseArea{
+                 anchors.fill: parent
+                 onClicked:playtv.visible=true
+             }
+         }
+    Image {
+             x:60
+             y:25
+             id: playtv
+             source: "play.png"
+             MouseArea{
+                 anchors.fill: parent
+                 onClicked:playtv.visible=false
+
+             }
+         }
+    Image {
+             x:150
+             y:25
+             id: volumetv
+             source: "volume.png"
+
+         }
+    Image {
+             x:29
+             y:70
+             id: tv
+             source: "spongebob.png"
+
+         }
+}
 
         //Large Health Window
         //Shows detailed health information
