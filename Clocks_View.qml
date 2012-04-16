@@ -126,7 +126,9 @@ Rectangle {
         var length=listsModel.count;
         for(var i=0;i<length;++i){
             if(listsModel.get(i).itemselected && i>0){
-                listsModel.move(i, i - 1, 1);
+                var j=i-1;
+                listsModel.move(i, j, 1);
+                break;
             }
         }
 
@@ -135,7 +137,9 @@ Rectangle {
         var length=listsModel.count;
         for(var i=0;i<length;++i){
             if(listsModel.get(i).itemselected && i<(length-1)){
-                listsModel.move(i, i + 1, 1);
+                var j=i+1;
+                listsModel.move(i, j, 1);
+                break;
             }
         }
 

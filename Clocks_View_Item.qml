@@ -6,7 +6,7 @@ Rectangle {
     height: 30
     color: clock_item_view.selected?"#222222":"#000000";
     property alias city: name.text
-    property real offset:0
+    property int offset:0
     property bool selected:false
     signal clicked(string cityname);
     Text {
@@ -59,6 +59,7 @@ Rectangle {
         font.pixelSize: 15
         font.family: "Arial"
         font.bold: true
+        visible: false;
     }
 
     MouseArea {
@@ -67,6 +68,11 @@ Rectangle {
         onClicked: {
             clock_item_view.clicked(clock_item_view.city);
         }
+    }
+
+    Timer{
+        interval: 1000; running:true; repeat: true;
+        onTriggered: time.text=showtime(clock_item_view.offset);
     }
 
     function showtime(offset){

@@ -116,7 +116,7 @@ Rectangle {
                 var db = openDatabaseSync("QDeclarativeExampleDB", "1.0", "The Example QML SQL!", 1000000);
                     db.transaction(
                          function(tx) {
-                            tx.executeSql('INSERT INTO mytimezone VALUES(?, ?, ?)', [ , listsModel.get(i).name, listsModel.get(i).offset ]);
+                            tx.executeSql('INSERT INTO mytimezone VALUES(?, ?, ?)', [ , listsModel.get(i).name, listsModel.get(i).offsetseconds ]);
                          }
                      )
             }

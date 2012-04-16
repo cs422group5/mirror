@@ -7,7 +7,7 @@ function initTimeZoneDb() {
                      function(tx) {
                         // Create the database if it doesn't already exist
                         tx.executeSql('DROP TABLE IF EXISTS timezone');
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS timezone(name TEXT, offset TEXT)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS timezone(name TEXT, offset INTEGER)');
                         var a = doc.responseText;
                         //console.log(a);
                         var b=a.split("|");
@@ -28,7 +28,7 @@ function initTimeZoneDb() {
     }
     doc.open("GET", "http://joysword.com/cs422/p2/timezones.txt");
     doc.send();
-    //inittestData();
+    inittestData();
 }
 
 function inittestData(){
@@ -36,7 +36,7 @@ function inittestData(){
         db.transaction(
              function(tx) {
                 tx.executeSql('DROP TABLE IF EXISTS mytimezone');
-                tx.executeSql('CREATE TABLE IF NOT EXISTS mytimezone(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, offset TEXT)');
+                tx.executeSql('CREATE TABLE IF NOT EXISTS mytimezone(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, offset INTEGER)');
                 tx.executeSql('INSERT INTO mytimezone VALUES(?, ?, ?)', [ , 'America/Chicago', '-18000' ]);
                 tx.executeSql('INSERT INTO mytimezone VALUES(?, ?, ?)', [ , 'Asia/Chongqing', '28800' ]);
                 /*var rs = tx.executeSql('SELECT * FROM timezone WHERE name LIKE \'%Af%\'');
