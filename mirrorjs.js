@@ -85,6 +85,7 @@ function click_tabHealth(tab){
 }
 
 function click_stock(id){
+    console.log("Here");
     if (!thirdStocks.visible){
         click_secondlevel("Stocks");
     }

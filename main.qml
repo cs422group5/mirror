@@ -398,12 +398,12 @@ Rectangle {
             width:150
             //color:parent.color
             //INSERT STOCKS APPLICATION HERE
-            Flickable{
+            /*Flickable{
                 id: stockflick
                 anchors.fill: parent
                 clip: true
                 contentWidth: stockflick.width
-                contentHeight: 20*6
+                contentHeight: 20*6*/
                 Stock{
                     symbol: "GOOG"
                 }
@@ -419,15 +419,7 @@ Rectangle {
                     y:60
                     symbol: "FORD"
                 }
-                Stock{
-                    y:80
-                    symbol: "GNW"
-                }
-                Stock{
-                    y:100
-                    symbol: "FORD"
-                }
-            }
+            //}
         }
     }
 
@@ -1103,6 +1095,19 @@ Rectangle {
                 Item{
                     id: content_healthExercise_Stats
                     x:116
+                    Text{
+                        text:"Height"
+                        font.pixelSize: 16
+                    }
+                    Text{
+                        text:"Height"
+                    }
+                    Text{
+                        text:"Weight"
+                    }
+                    Text{
+                        text:"Height"
+                    }
                 }
                 Item{
                     id: content_healthExercise_Suggestions
