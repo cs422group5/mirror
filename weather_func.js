@@ -1,3 +1,3 @@
-function ctof(temperature){
-    return parseInt(temperature*9/5)+32;
+function ftoc(temperature){
+    return parseInt((temperature-32)*5/9);
 }

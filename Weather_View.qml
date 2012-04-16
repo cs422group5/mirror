@@ -51,9 +51,11 @@ Rectangle {
         onStatusChanged:{
             if(weather4dayModel.count>0){
                 if(temperature_f){
-                    h_tmp=Wfunc.ctof(weather4dayModel.get(0).high);
-                    l_tmp=Wfunc.ctof(weather4dayModel.get(0).low);
+                    h_tmp=weather4dayModel.get(0).high;
+                    l_tmp=weather4dayModel.get(0).low;
                 }else{
+                    //h_tmp=Wfunc.ftoc(weather4dayModel.get(0).high);
+                    //l_tmp=Wfunc.ftoc(weather4dayModel.get(0).low);
                     h_tmp=weather4dayModel.get(0).high;
                     l_tmp=weather4dayModel.get(0).low;
                 }
@@ -105,7 +107,7 @@ Rectangle {
         id: button11
         x: 442
         y: 236
-        btnText: temperature_f?"°C":"°F";
+        btnText: temperature_f?"°F":"°C";
         onClicked: {
             temperature_f=!temperature_f;
             weathertodayModel.reload();
@@ -164,7 +166,7 @@ Rectangle {
         y: 102
         width: 55
         height: 24
-        text: h_tmp
+        text: temperature_f?h_tmp:Wfunc.ftoc(h_tmp)
         color: "#ffffff"
         font.pixelSize: 22
         font.family: "Arial"
@@ -176,7 +178,7 @@ Rectangle {
         y: 147
         width: 55
         height: 24
-        text: l_tmp
+        text: temperature_f?l_tmp:Wfunc.ftoc(l_tmp)
         color: "#ffffff"
         font.pixelSize: 22
         font.family: "Arial"
