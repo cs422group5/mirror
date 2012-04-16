@@ -302,13 +302,7 @@ function click_secondlevel(app){
         }
     }
     else if(app == "Todo List"){
-        thirdTodo.visible = !todoopen;
-        if (thirdTodo.visible){
-            firstTodo.hexcolor = "#000";
-        }
-        else{
-            firstTodo.hexcolor = "#444";
-        }
+
     }
     else if(app == "Weather"){
         thirdWeather.visible = !weatheropen;
