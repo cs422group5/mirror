@@ -13,7 +13,7 @@ Rectangle {
 
     Text {
         id: time_from
-        x: 26
+        x: 5
         y: 4
         width: 44
         height: 17
@@ -26,7 +26,7 @@ Rectangle {
 
     Text {
         id: time_link
-        x: 84
+        x: 43
         y: 5
         width: 12
         height: 12
@@ -39,7 +39,7 @@ Rectangle {
 
     Text {
         id: time_to
-        x: 109
+        x: 51
         y: 4
         width: 44
         height: 17
@@ -52,7 +52,7 @@ Rectangle {
 
     Text {
         id: jobs
-        x: 48
+        x: 94
         y: 24
         width: 88
         height: 17

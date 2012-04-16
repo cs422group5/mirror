@@ -16,7 +16,7 @@ Rectangle {
         height: 20
         color: "#ffffff"
         text: qsTr("inner_text")
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment: Text.AlignLeft
         font.family: "Arial"
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter

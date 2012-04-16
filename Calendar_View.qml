@@ -30,15 +30,15 @@ Rectangle {
             function loadCalendarView() {
                 console.log("aa");
                 listsModel.clear();
-                listsModel.append( {"text":"Today:"+showdate(0),"type":1});
-                listsModel.append( {"text":"09:30 - 10:45 / CS 422","type":0});
-                listsModel.append( {"text":"12:30 - 13:00 / Office Hour","type":0});
-                listsModel.append( {"text":"15:30 - 16:45 / CS 525","type":0});
-                listsModel.append( {"text":"Tomorrow:"+showdate(3600*24),"type":1});
-                listsModel.append( {"text":"15:00 - 16:15 / taking class","type":0});
+                listsModel.append( {"text":showdate(0)+" (Today)","type":1});
+                listsModel.append( {"text":"09:30 - 10:45           CS 422","type":0});
+                listsModel.append( {"text":"12:30 - 13:00           Office Hour","type":0});
+                listsModel.append( {"text":"15:30 - 16:45           CS 525","type":0});
+                listsModel.append( {"text":showdate(3600*24)+" (Tomorrow)","type":1});
+                listsModel.append( {"text":"15:00 - 16:15           taking class","type":0});
                 listsModel.append( {"text":showdate(3600*24*2),"type":1});
-                listsModel.append( {"text":"From: 10:30 - 16:30 / Movie","type":0});
-                listsModel.append( {"text":"From: 18:00 - 20:00 / Dinner with Joe","type":0});
+                listsModel.append( {"text":"10:30 - 16:30           Movie","type":0});
+                listsModel.append( {"text":"18:00 - 20:00           Dinner with Joe","type":0});
             }
             function showdate(offset){
                 var d = new Date();
