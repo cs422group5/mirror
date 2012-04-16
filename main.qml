@@ -18,6 +18,12 @@ Rectangle {
         }
     width: 1024
     height: 728
+
+    Image {
+             id: background
+             source: "background.png"
+         }
+
     Rectangle{
         width: 100
         height:40
