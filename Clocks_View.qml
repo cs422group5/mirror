@@ -91,7 +91,7 @@ Rectangle {
     Clock_Add {
         id: clock_add1
         x: 0
-        y: -290
+        y: 295
         visible: false
         onFreshed: listsModel.loadClocks();
     }

@@ -13,7 +13,7 @@ Item{
     property string closed
     property string open
     height: 20
-    width:parent.width
+    width:160
     Text{
         id: symbol
         color: "#fff"
@@ -42,9 +42,8 @@ Item{
         }
     }
     Timer{
-        interval: 30000; running:true; repeat: true;
+        interval: 5000; running:true; repeat: true;
         onTriggered: HTTP.googleFinance(parent, parent.symbol);
-        triggeredOnStart: HTTP.googleFinance(parent, parent.symbol);
     }
     MouseArea{
         anchors.fill: parent

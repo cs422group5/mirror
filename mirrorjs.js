@@ -7,6 +7,47 @@ var nexty = 0;
 var oldRoute;
 var oldDirection;
 
+function login(action){
+    if (action == "in"){
+        loginScreen.visible = false;
+        logged.visible = true;
+    }
+    else{
+        if(secondHealth.visible){
+            click_icon("Health");
+        }
+        if(secondOutfit.visible){
+            click_icon("Outfit");
+        }
+        if(secondStocks.visible){
+            click_icon("Stocks");
+        }
+        if(secondMusic.visible){
+            click_icon("Music");
+        }
+        if(secondTV.visible){
+            click_icon("TV");
+        }
+        if(secondWeather.visible){
+            click_icon("Weather");
+        }
+        if(thirdCTA.visible){
+            click_secondlevel("CTA");
+        }
+        if(thirdCalendar.visible){
+            click_secondlevel("Calendar");
+        }
+        if(thirdWeather.visible){
+            click_secondlevel("Weather");
+        }
+        if(thirdPreferences.visible){
+            click_icon("Pref");
+        }
+        logged.visible = false;
+        loginScreen.visible = true;
+    }
+}
+
 function ctabustracker(clicked, value, id){
     if (clicked == "route" && oldRoute != id){
         id.color = "#009999";
@@ -85,6 +126,7 @@ function click_tabHealth(tab){
 }
 
 function click_stock(id){
+    console.log("Here");
     if (!thirdStocks.visible){
         click_secondlevel("Stocks");
     }
@@ -301,13 +343,7 @@ function click_secondlevel(app){
         }
     }
     else if(app == "Todo List"){
-        thirdTodo.visible = !todoopen;
-        if (thirdTodo.visible){
-            firstTodo.hexcolor = "#000";
-        }
-        else{
-            firstTodo.hexcolor = "#444";
-        }
+
     }
     else if(app == "Weather"){
         thirdWeather.visible = !weatheropen;
@@ -407,7 +443,7 @@ function click_icon(app){
             secondTV.visible = false;
         }
     }
-    else{
+    else if (app=="Pref"){
         if (thirdHealth.visible){
             thirdHealth.visible = false;
             secondHealth.hexcolor = "#222";
@@ -422,6 +458,14 @@ function click_icon(app){
             thirdStocks.visible = false;
             secondStocks.hexcolor = "#222";
             firstStocks.hexcolor = "#222";
+        }
+        else if (thirdCalendar.visible){
+            thirdCalendar.visible = false;
+            firstCalendar.hexcolor = "#444";
+        }
+        else if (thirdCTA.visible){
+            thirdCTA.visible = false;
+            firstCTA.hexcolor = "#444";
         }
 
 
