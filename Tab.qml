@@ -18,8 +18,4 @@ Rectangle {
         anchors.centerIn: parent
         color: hexcolor
     }
-    MouseArea{
-        anchors.fill: parent
-        onClicked: Handler.click_tab(text)
-    }
 }

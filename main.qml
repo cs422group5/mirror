@@ -32,6 +32,9 @@ Rectangle {
         hexcolor:"#444"
         x:570
         y:-40
+        onClicked: {
+            clocks_view1.visible=!clocks_view1.visible;
+        }
     }
     WeatherIcon{
         id: secondWeather
@@ -385,6 +388,7 @@ Rectangle {
 
     //Stocks Window 2
     //Shows quick stock quotes from Google Finance
+
     WindowSize2{
         id: secondStocks
         text: "Stocks"
@@ -487,24 +491,40 @@ Rectangle {
                 x:10
                 hexcolor: "#fff"
                 text:"Nutrients"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_tabHealth(parent.text)
+                }
             }
             Tab{
                 id: tab_healthMedicine
                 x:122
                 hexcolor: "#444"
                 text:"Medicine"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_tabHealth(parent.text)
+                }
             }
             Tab{
                 id: tab_healthExercise
                 x:234
                 hexcolor: "#444"
                 text:"Exercise"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_tabHealth(parent.text)
+                }
             }
             Tab{
                 id: tab_healthSleep
                 x:346
                 hexcolor: "#444"
                 text:"Sleep"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_tabHealth(parent.text)
+                }
             }
             Item{
                 x:10
@@ -519,7 +539,7 @@ Rectangle {
                     font.pixelSize: 16
                     MouseArea{
                         anchors.fill: parent
-                        onClicked: Handler.click_healthTab("vitamin")
+                        onClicked: Handler.click_subVitamins("vitamin")
                     }
                 }
                 Text{
@@ -531,7 +551,7 @@ Rectangle {
                     font.pixelSize: 16
                     MouseArea{
                         anchors.fill: parent
-                        onClicked: Handler.click_healthTab("suggest")
+                        onClicked: Handler.click_subVitamins("suggest")
                     }
                 }
                 Item{
@@ -752,6 +772,363 @@ Rectangle {
                             font.pixelSize: 16
                         }
                     }
+                }
+            }
+            Item{
+                x:10
+                y:26
+                id: content_healthMedicine
+                visible: false
+                Text{
+                    id: tab_healthMedicine_Schedule
+                    property string tabcolor: "#fff"
+                    color: tabcolor
+                    text: "Schedule"
+                    font.pixelSize: 16
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_subMedicine(parent.text)
+                    }
+                }
+                Text{
+                    id: tab_healthMedicine_PillsLeft
+                    y:24
+                    property string tabcolor: "#444"
+                    color:tabcolor
+                    text: "Pills Left"
+                    font.pixelSize: 16
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_subMedicine(parent.text)
+                    }
+                }
+                Item{
+                    id: content_healthMedicine_Schedule
+                    x:116
+                    Rectangle{
+                        x:90
+                        height:210
+                        width:2
+                    }
+                    Rectangle{
+                        x:180
+                        height:210
+                        width:2
+                    }
+                    Rectangle{
+                        x:270
+                        height:210
+                        width:2
+                    }
+                    Rectangle{
+                        y:105
+                        height:2
+                        width:360
+                    }
+                    Item{
+                        x:10
+                        Text{
+                            color:"#fff"
+                            text:"MON"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Aserta"
+                        }
+                    }
+                    Item{
+                        x:100
+                        Text{
+                            color:"#fff"
+                            text:"TUE"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#990000"
+                            text:"Ridlin"
+                        }
+                    }
+                    Item{
+                        x:190
+                        Text{
+                            color:"#fff"
+                            text:"WED"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Aserta"
+                        }
+                        Text{
+                            y:50
+                            color:"#fff"
+                            text:"Alleve"
+                        }
+                    }
+                    Item{
+                        x:280
+                        Text{
+                            color:"#fff"
+                            text:"THU"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#990000"
+                            text:"Ridlin"
+                        }
+                    }
+                    Item{
+                        x:10
+                        y:115
+                        Text{
+                            color:"#fff"
+                            text:"FRI"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Aserta"
+                        }
+                        Text{
+                            y:50
+                            color:"#fff"
+                            text:"Alleve"
+                        }
+                    }
+                    Item{
+                        x:100
+                        y:115
+                        Text{
+                            color:"#fff"
+                            text:"SAT"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Aserta"
+                        }
+                        Text{
+                            y:50
+                            color:"#fff"
+                            text:"Alleve"
+                        }
+                    }
+                    Item{
+                        x:190
+                        y:115
+                        Text{
+                            color:"#fff"
+                            text:"SUN"
+                            font.pixelSize: 14
+                        }
+                        Text{
+                            y:30
+                            color:"#fff"
+                            text:"Aserta"
+                        }
+                        Text{
+                            y:50
+                            color:"#fff"
+                            text:"Alleve"
+                        }
+                    }
+                }
+                Item{
+                    id: content_healthMedicine_PillsLeft
+                    x:116
+                    visible: false
+                    Rectangle{
+                        //155
+                        y:115
+                        x:70
+                        width:36
+                        height:40
+                        color:"#000"
+                        border.color:"#990000"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:30
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%\n" + "(" +Math.floor(parent.parent.height*.2)+")"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:65
+                        x:130
+                        width:36
+                        height:90
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:30
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%\n" + "(" +Math.floor(parent.parent.height*.6)+")"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:75
+                        x:190
+                        width:36
+                        height:80
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:30
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%\n" + "(" +Math.floor(parent.parent.height*.80)+")"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:99
+                        x:250
+                        width:36
+                        height:56
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:30
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%\n" + "(" +Math.floor(parent.parent.height*.25)+")"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        //155
+                        y:54
+                        x:310
+                        width:36
+                        height:100
+                        color:"#000"
+                        border.color:"#fff"
+                        border.width:2
+                        Item{
+                            width:parent.width
+                            height:30
+                            Text{
+                                anchors.centerIn: parent
+                                text: parent.parent.height + "%\n" + "(" +Math.floor(parent.parent.height*.4)+")"
+                                color: parent.parent.border.color
+                            }
+                        }
+                    }
+                    Rectangle{
+                        x: 60
+                        y:4
+                        width:2
+                        height:150
+                        color: "#fff"
+                    }
+                    Rectangle{
+                        x: 60
+                        y:154
+                        width:300
+                        height:2
+                        color: "#fff"
+                    }
+                    Text{
+                        y:49
+                        text:"Pills Left\n     (%)"
+                        color:"#fff"
+                    }
+                }
+                Rectangle{
+                    x:388
+                    y:225
+                    width:100
+                    height:30
+                    radius:5
+                    color:"#000"
+                    border.color: "#fff"
+                    border.width: 2
+                    Text{
+                        text: "Add Med"
+                        color:"#fff"
+                        font.pixelSize: 18
+                        anchors.centerIn: parent
+                    }
+                }
+            }
+            Item{
+                x:10
+                y:26
+                id: content_healthExercise
+                visible: false
+                Text{
+                    id: tab_healthExercise_Stats
+                    property string tabcolor: "#fff"
+                    color: tabcolor
+                    text: "Stats"
+                    font.pixelSize: 16
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_subExercise(parent.text)
+                    }
+                }
+                Text{
+                    id: tab_healthExercise_Suggestions
+                    y:24
+                    property string tabcolor: "#444"
+                    color:tabcolor
+                    text: "Suggestions"
+                    font.pixelSize: 16
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: Handler.click_subExercise(parent.text)
+                    }
+                }
+                Item{
+                    id: content_healthExercise_Stats
+                    x:116
+                }
+                Item{
+                    id: content_healthExercise_Suggestions
+                    x:116
+                    visible: false
+                }
+            }
+            Item{
+                x:10
+                y:26
+                id: content_healthSleep
+                visible: false
+                Text{
+                    id: tab_healthSleep_Sleep
+                    property string tabcolor: "#444"
+                    color:tabcolor
+                    text: "Sleep"
+                    font.pixelSize: 16
+                }
+                Item{
+                    id: content_healthSleep_Sleep
+                    x:116
                 }
             }
             Rectangle{
@@ -1088,18 +1465,30 @@ Rectangle {
                 id: tab_general
                 hexcolor: "#fff"
                 text:"General"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_tab(parent.text)
+                }
             }
             Tab{
                 id: tab_google
                 x:122
                 hexcolor: "#444"
                 text:"Google"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_tab(parent.text)
+                }
             }
             Tab{
                 id: tab_wifi
                 x:234
                 hexcolor: "#444"
                 text:"Wifi"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: Handler.click_tab(parent.text)
+                }
             }
             Rectangle{
                 x: 290
@@ -1434,6 +1823,7 @@ Rectangle {
         x:784
         y:530
         Item{
+            id: todoDisplay
             x:10
             y:20
             height:170
@@ -1443,4 +1833,11 @@ Rectangle {
         }
     }
 
+
+    Clocks_View {
+        id: clocks_view1
+        x: 252
+        y: 395
+        visible: false;
+    }
 }

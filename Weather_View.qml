@@ -3,6 +3,7 @@ import QtQuick 1.1
 import "weather_func.js" as Wfunc
 Rectangle {
     id:weather_view
+    clip:true
     width: 520
     height: 290
     color: "#00000000"
@@ -12,17 +13,27 @@ Rectangle {
     property int l_tmp : 0
     property bool temperature_f : true
     property string imageConstPath: "http://www.google.com"
-    ListView {
-
-        id: list
+    Flickable{
+        id:weatherctaFlick
+        clip:true
+        x:0
         y:0
         width: 200
         height: 227
-        x:0
         anchors.right: parent.right
         anchors.rightMargin: 0
-        model: weather4dayModel
-        delegate: Weather_View_Item {
+        ListView {
+
+            id: list
+            y:0
+            width: 200
+            height: 227
+            x:0
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            model: weather4dayModel
+            delegate: Weather_View_Item {
+            }
         }
     }
     XmlListModel {

@@ -57,6 +57,33 @@ function ctabustracker(clicked, value, id){
     }
 }
 
+function click_tabHealth(tab){
+    tab_healthNutrients.hexcolor = "#444";
+    tab_healthMedicine.hexcolor = "#444";
+    tab_healthExercise.hexcolor = "#444";
+    tab_healthSleep.hexcolor = "#444";
+    content_healthNutrients.visible = false;
+    content_healthMedicine.visible = false;
+    content_healthExercise.visible = false;
+    content_healthSleep.visible = false;
+    if (tab == "Nutrients"){
+        tab_healthNutrients.hexcolor = "#fff";
+        content_healthNutrients.visible = true;
+    }
+    else if (tab == "Medicine"){
+        tab_healthMedicine.hexcolor = "#fff";
+        content_healthMedicine.visible = true;
+    }
+    else if (tab == "Exercise"){
+        tab_healthExercise.hexcolor = "#fff";
+        content_healthExercise.visible = true;
+    }
+    else if (tab == "Sleep"){
+        tab_healthSleep.hexcolor = "#fff";
+        content_healthSleep.visible = true;
+    }
+}
+
 function click_stock(id){
     if (!thirdStocks.visible){
         click_secondlevel("Stocks");
@@ -77,8 +104,7 @@ function click_stock(id){
     stockHigh.text = id.high;
 }
 
-function click_healthTab(tab){
-    console.log(tab);
+function click_subVitamins(tab){
     tab_healthNutrients_Suggest.tabcolor = "#444";
     tab_healthNutrients_Vit.tabcolor = "#444";
     content_healthNutrients_Suggest.visible = false;
@@ -91,6 +117,36 @@ function click_healthTab(tab){
     else{
         tab_healthNutrients_Suggest.tabcolor = "#fff";
         content_healthNutrients_Suggest.visible = true;
+    }
+}
+
+function click_subMedicine(tab){
+    tab_healthMedicine_Schedule.tabcolor = "#444";
+    tab_healthMedicine_PillsLeft.tabcolor = "#444";
+    content_healthMedicine_Schedule.visible = false;
+    content_healthMedicine_PillsLeft.visible = false;
+    if (tab == "Schedule"){
+        tab_healthMedicine_Schedule.tabcolor = "#fff";
+        content_healthMedicine_Schedule.visible = true;
+    }
+    else{
+        tab_healthMedicine_PillsLeft.tabcolor = "#fff";
+        content_healthMedicine_PillsLeft.visible = true;
+    }
+}
+
+function click_subExercise(tab){
+    tab_healthExercise_Stats.tabcolor = "#444";
+    tab_healthExercise_Suggestions.tabcolor = "#444";
+    content_healthExercise_Stats.visible = false;
+    content_healthExercise_Suggestions.visible = false;
+    if (tab == "Stats"){
+        tab_healthExercise_Stats.tabcolor = "#fff";
+        content_healthExercise_Stats.visible = true;
+    }
+    else{
+        tab_healthExercise_Suggestions.tabcolor = "#fff";
+        content_healthExercise_Suggestions.visible = true;
     }
 }
 

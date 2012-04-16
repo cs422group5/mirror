@@ -2,7 +2,9 @@
 import QtQuick 1.1
 
 Rectangle {
+    id:headedr1
     property string hexcolor
+    signal clicked()
     Item{
         id:watch
         property int hours
@@ -60,5 +62,11 @@ Rectangle {
             color:"#fff"
             font.pixelSize: 42
         }
+    }
+
+    MouseArea {
+        id: mouse_area1
+        anchors.fill: parent
+        onClicked: headedr1.clicked();
     }
 }
