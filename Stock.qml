@@ -13,7 +13,7 @@ Item{
     property string closed
     property string open
     height: 20
-    width:parent.width
+    width:160
     Text{
         id: symbol
         color: "#fff"
