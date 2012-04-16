@@ -2401,10 +2401,11 @@ Rectangle {
         }
 
     }
-    Clocks_View {
+    /*Clocks_View {
         id: clocks_view1
         x:250
         y:110
         visible: false;
     }
+    */
 }
