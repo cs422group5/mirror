@@ -5,8 +5,8 @@ import "request.js" as HTTP
 //testtest
 Rectangle {
     id:home
-    property string email: ""
-    property string passwd: ""
+    property string email: "paulrealsane@gmail.com"
+    property string passwd: "fantasy90"
     property string authTokenFinance: ""
     property string authTokenCalendar: ""
     onAuthTokenFinanceChanged: console.log("authTokenFinance = "+authTokenFinance);
